@@ -1,5 +1,5 @@
 {
-  "name": "growfi-strapi",
+  "name": "be-strapi",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -7,6 +7,7 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "build": "strapi build",
+    "gcp-build": "strapi build",
     "strapi": "strapi"
   },
   "devDependencies": {},
@@ -21,10 +22,6 @@
   },
   "strapi": {
     "uuid": "045d1487-ea88-4b70-a1c4-bcfdf76dce45"
-  },
-  "engines": {
-    "node": ">=12.x.x <=16.x.x",
-    "npm": ">=6.0.0"
   },
   "license": "MIT"
 }

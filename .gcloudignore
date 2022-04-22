@@ -5,3 +5,4 @@ node_modules/
 #!include:.gitignore
 !.env
 yarn.lock  # If you're using Yarn
+package-lock.json
