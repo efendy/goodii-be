@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "story_tags",
+  "info": {
+    "singularName": "story-tag",
+    "pluralName": "story-tags",
+    "displayName": "Story Tags",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tag": {
+      "type": "string"
+    },
+    "story_id": {
+      "type": "integer"
+    }
+  }
+}
