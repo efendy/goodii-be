@@ -15,8 +15,11 @@
     "tag": {
       "type": "string"
     },
-    "story_id": {
-      "type": "integer"
+    "stories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::story.story",
+      "inversedBy": "story_tags"
     }
   }
 }

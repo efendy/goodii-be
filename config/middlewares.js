@@ -7,8 +7,8 @@ module.exports = [
         useDefaults: true,
         directives: {
           'connect-src': ["'self'", 'https:'],
-          'img-src': ["'self'", 'data:', 'blob:', '34.110.136.213'],
-          'media-src': ["'self'", 'data:', 'blob:', '34.110.136.213'],
+          'img-src': ["'self'", 'data:', 'blob:', 'growfi-test.appicot.com'],
+          'media-src': ["'self'", 'data:', 'blob:', 'growfi-test.appicot.com'],
           upgradeInsecureRequests: null,
         },
       },

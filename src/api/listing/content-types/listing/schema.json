@@ -32,12 +32,6 @@
     "currency": {
       "type": "string"
     },
-    "shop": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::shop.shop",
-      "inversedBy": "listings"
-    },
     "geo_hash": {
       "type": "string"
     },
@@ -52,11 +46,16 @@
         "hidden"
       ]
     },
-    "orders": {
+    "shop": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::order.order",
-      "mappedBy": "listing"
+      "relation": "oneToOne",
+      "target": "api::shop.shop"
+    },
+    "listing_tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::listing-tag.listing-tag",
+      "inversedBy": "listings"
     }
   }
 }

@@ -42,23 +42,15 @@
     "delivered_datetime": {
       "type": "datetime"
     },
-    "shop": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::shop.shop",
-      "inversedBy": "orders"
-    },
-    "users_permissions_user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "orders"
-    },
     "listing": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::listing.listing",
-      "inversedBy": "orders"
+      "relation": "oneToOne",
+      "target": "api::listing.listing"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }
