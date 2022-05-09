@@ -88,18 +88,6 @@
       },
       "type": "boolean"
     },
-    "user": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "shops"
-    },
-    "stories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::story.story",
-      "mappedBy": "shop_id"
-    },
     "logo": {
       "type": "media",
       "multiple": false,
@@ -145,12 +133,6 @@
         "Service"
       ]
     },
-    "listings": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::listing.listing",
-      "mappedBy": "shop"
-    },
     "geo_hash": {
       "pluginOptions": {
         "i18n": {
@@ -159,11 +141,10 @@
       },
       "type": "string"
     },
-    "orders": {
+    "user": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::order.order",
-      "mappedBy": "shop"
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

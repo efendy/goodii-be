@@ -4,18 +4,22 @@
   "info": {
     "singularName": "listing-tag",
     "pluralName": "listing-tags",
-    "displayName": "Listing Tags"
+    "displayName": "Listing Tags",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "listing_id": {
-      "type": "integer"
-    },
     "tag": {
       "type": "string"
+    },
+    "listings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::listing.listing",
+      "inversedBy": "listing_tags"
     }
   }
 }

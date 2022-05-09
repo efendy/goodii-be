@@ -63,21 +63,8 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "display_name": {
-      "type": "string",
-      "required": true
-    },
-    "shops": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::shop.shop",
-      "mappedBy": "user"
-    },
-    "orders": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::order.order",
-      "mappedBy": "users_permissions_user"
+    "provider_data": {
+      "type": "json"
     }
   }
 }
