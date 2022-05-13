@@ -12,21 +12,29 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "first_name": {
+    "display_name": {
       "type": "string",
-      "maxLength": 30
+      "maxLength": 60,
+      "required": true,
+      "unique": true
     },
-    "last_name": {
+    "real_name": {
       "type": "string",
-      "maxLength": 30
+      "maxLength": 120
+    },
+    "geohash": {
+      "type": "string"
+    },
+    "birthday": {
+      "type": "date"
+    },
+    "uid": {
+      "type": "uid"
     },
     "user": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user"
-    },
-    "geohash": {
-      "type": "string"
     }
   }
 }

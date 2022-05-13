@@ -4,7 +4,7 @@
   "info": {
     "singularName": "story-tag",
     "pluralName": "story-tags",
-    "displayName": "Story Tags",
+    "displayName": "Story Tag",
     "description": ""
   },
   "options": {
@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "tag": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "stories": {
       "type": "relation",

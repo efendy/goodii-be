@@ -17,7 +17,8 @@
     "@strapi/provider-email-nodemailer": "^4.1.9",
     "@strapi/strapi": "4.1.8",
     "dotenv": "^16.0.0",
-    "pg": "8.6.0"
+    "pg": "8.6.0",
+    "uuid": "^8.3.2"
   },
   "author": {
     "name": "A Strapi developer"

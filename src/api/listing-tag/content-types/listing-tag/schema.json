@@ -4,7 +4,7 @@
   "info": {
     "singularName": "listing-tag",
     "pluralName": "listing-tags",
-    "displayName": "Listing Tags",
+    "displayName": "Listing Tag",
     "description": ""
   },
   "options": {
@@ -13,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "tag": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "listings": {
       "type": "relation",
