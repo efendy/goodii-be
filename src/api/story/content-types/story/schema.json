@@ -71,6 +71,22 @@
       "relation": "manyToMany",
       "target": "api::story-tag.story-tag",
       "inversedBy": "stories"
+    },
+    "title_en": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
+    },
+    "content_en": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "richtext"
     }
   }
 }
