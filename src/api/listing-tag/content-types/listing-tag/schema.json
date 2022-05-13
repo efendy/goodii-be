@@ -19,7 +19,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::listing.listing",
-      "inversedBy": "listing_tags"
+      "mappedBy": "listing_tags"
     }
   }
 }
