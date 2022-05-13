@@ -116,6 +116,14 @@
         }
       },
       "type": "richtext"
+    },
+    "viewed": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
     }
   }
 }
