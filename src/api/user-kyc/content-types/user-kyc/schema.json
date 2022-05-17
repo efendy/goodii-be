@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_kycs",
+  "info": {
+    "singularName": "user-kyc",
+    "pluralName": "user-kycs",
+    "displayName": "User KYC"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "real_name": {
+      "type": "string",
+      "required": true
+    },
+    "image_ic_front": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "image_ic_back": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "image_selfie": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "approved": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-profile.user-profile",
+      "mappedBy": "user_kyc"
+    }
+  }
+}
