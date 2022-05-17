@@ -47,10 +47,10 @@
       "relation": "oneToOne",
       "target": "api::listing.listing"
     },
-    "user": {
+    "user_profile": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+      "target": "api::user-profile.user-profile"
     }
   }
 }

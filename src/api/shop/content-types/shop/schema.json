@@ -147,11 +147,6 @@
       },
       "type": "string"
     },
-    "user": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
     "name_en": {
       "pluginOptions": {
         "i18n": {
@@ -181,6 +176,12 @@
       "relation": "oneToMany",
       "target": "api::listing.listing",
       "mappedBy": "shop"
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-profile.user-profile",
+      "inversedBy": "shops"
     }
   }
 }
