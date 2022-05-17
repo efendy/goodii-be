@@ -92,8 +92,9 @@
     },
     "shop": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::shop.shop"
+      "relation": "manyToOne",
+      "target": "api::shop.shop",
+      "inversedBy": "listings"
     },
     "listing_tags": {
       "type": "relation",
