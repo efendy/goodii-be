@@ -103,6 +103,14 @@
         }
       },
       "type": "string"
+    },
+    "owner_id": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
     }
   }
 }

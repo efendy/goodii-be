@@ -51,6 +51,12 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::user-profile.user-profile"
+    },
+    "listing_owner_id": {
+      "type": "biginteger"
+    },
+    "owner_id": {
+      "type": "biginteger"
     }
   }
 }

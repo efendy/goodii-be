@@ -182,6 +182,14 @@
       "relation": "manyToOne",
       "target": "api::user-profile.user-profile",
       "inversedBy": "shops"
+    },
+    "owner_id": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
     }
   }
 }
