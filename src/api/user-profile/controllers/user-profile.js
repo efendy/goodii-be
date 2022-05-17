@@ -38,7 +38,6 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
    */
 
   async update(ctx) {
-    console.log('params', ctx.params);
     ctx.params.id = ctx.state.user.id;
     const response = await super.update(ctx);
     return response;
