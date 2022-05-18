@@ -1,0 +1,47 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "GROW Strapi API",
+    "description": "",
+    "termsOfService": "#",
+    "contact": {
+      "name": "GROWFI",
+      "email": "dev@growfi.ai",
+      "url": "growfi.ai"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "x-strapi-config": {
+    "path": "/documentation",
+    "showGeneratedFiles": true,
+    "pluginsForWhichToGenerateDoc": [
+      "upload"
+    ]
+  },
+  "servers": [
+    {
+      "url": "https://be-strapi-dot-growfi-test.as.r.appspot.com",
+      "description": "Staging server"
+    },
+    {
+      "url": "http://localhost:1337",
+      "description": "Local server"
+    }
+  ],
+  "externalDocs": {
+    "description": "Find out more",
+    "url": "https://docs.strapi.io/developer-docs/latest/developer-resources/database-apis-reference/rest-api.html"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {},
+  "tags": [],
+  "components": {}
+}
