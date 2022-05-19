@@ -26,7 +26,8 @@
       "type": "string"
     },
     "birthday": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "user": {
       "type": "relation",

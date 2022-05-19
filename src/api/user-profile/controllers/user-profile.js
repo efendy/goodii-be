@@ -28,8 +28,10 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
       }
     };
     if (ctx.state?.user) {
+      console.log(ctx.request.body.data);
       ctx.request.body.data.user = ctx.state.user.id;
       ctx.request.body.data.id = ctx.state.user.id;
+      // @TODO Check Birthday greater or equal than 18 years
       response = await super.create(ctx);
     }
     return response;
