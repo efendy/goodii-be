@@ -35,6 +35,18 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
     return response;
   },
 
+  async createMany(ctx) {
+    let response = {
+      data: null,
+      error: {
+        status: 400,
+        name: "Bad Request",
+        message: "Invalid Request"
+      }
+    };
+    return response;
+  },
+
   async update(ctx) {
     let response = {
       data: null,
