@@ -57,6 +57,9 @@
     },
     "owner_id": {
       "type": "biginteger"
+    },
+    "uid": {
+      "type": "string"
     }
   }
 }

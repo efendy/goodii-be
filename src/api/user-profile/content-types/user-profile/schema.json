@@ -28,9 +28,6 @@
     "birthday": {
       "type": "date"
     },
-    "uid": {
-      "type": "uid"
-    },
     "user": {
       "type": "relation",
       "relation": "oneToOne",
@@ -47,6 +44,16 @@
       "relation": "oneToOne",
       "target": "api::user-kyc.user-kyc",
       "inversedBy": "user_profile"
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone_mobile": {
+      "type": "string",
+      "regex": "^\\+[0-9]*"
+    },
+    "uid": {
+      "type": "string"
     }
   }
 }

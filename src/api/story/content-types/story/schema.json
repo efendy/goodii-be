@@ -63,8 +63,9 @@
     },
     "shop": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::shop.shop"
+      "relation": "manyToOne",
+      "target": "api::shop.shop",
+      "inversedBy": "stories"
     },
     "story_tags": {
       "type": "relation",
@@ -111,6 +112,14 @@
         }
       },
       "type": "biginteger"
+    },
+    "uid": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

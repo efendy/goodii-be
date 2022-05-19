@@ -190,6 +190,20 @@
         }
       },
       "type": "biginteger"
+    },
+    "uid": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "stories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::story.story",
+      "mappedBy": "shop"
     }
   }
 }
