@@ -18,28 +18,48 @@ module.exports = createCoreController('api::user-kyc.user-kyc', ({ strapi }) => 
     return response;
   },
 
-  /**
-   * Create a record.
-   *
-   * @return {Object}
-   */
-
   async create(ctx) {
-    ctx.request.body.data.user_profile = ctx.state.user.id;
-    ctx.request.body.data.id = ctx.state.user.id;
-    const response = await super.create(ctx);
+    let response = {
+      data: null,
+      error: {
+        status: 401,
+        name: "UnauthorizedError",
+        message: "Required valid authentication"
+      }
+    };
+    if (ctx.state?.user) {
+      ctx.request.body.data.user_profile = ctx.state.user.id;
+      ctx.request.body.data.id = ctx.state.user.id;
+      response = await super.create(ctx);
+    }
     return response;
   },
 
-  /**
-   * Update a record.
-   *
-   * @return {Object}
-   */
-
   async update(ctx) {
-    ctx.params.id = ctx.state.user.id;
-    const response = await super.update(ctx);
+    let response = {
+      data: null,
+      error: {
+        status: 401,
+        name: "UnauthorizedError",
+        message: "Required valid authentication"
+      }
+    };
+    if (ctx.state?.user) {
+      ctx.params.id = ctx.state.user.id;
+      response = await super.update(ctx);
+    }
+    return response;
+  },
+
+  async updateMany(ctx) {
+    let response = {
+      data: null,
+      error: {
+        status: 400,
+        name: "Bad Request",
+        message: "Invalid Request"
+      }
+    };
     return response;
   },
 }));
