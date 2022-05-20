@@ -120,6 +120,15 @@
         }
       },
       "type": "string"
+    },
+    "view_count": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger",
+      "default": "0"
     }
   }
 }

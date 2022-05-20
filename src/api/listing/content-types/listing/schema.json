@@ -19,9 +19,9 @@
     "category": {
       "type": "enumeration",
       "enum": [
-        "Food",
-        "Craft",
-        "Service"
+        "food",
+        "craft",
+        "service"
       ],
       "pluginOptions": {
         "i18n": {
@@ -141,6 +141,15 @@
         }
       },
       "type": "string"
+    },
+    "view_count": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger",
+      "default": "0"
     }
   }
 }
