@@ -57,10 +57,10 @@ module.exports = createCoreController('api::shop.shop', ({ strapi }) =>  ({
           console.log(ctx.request.body);
           response = await super.update(ctx);
         } else {
-          response.error = { status: 401, name: "Unauthorized", message: `Not allow to update id ${ctx.params.id}` }
+          response.error = { status: 401, name: "Unauthorized", message: `Not allow to update id ${ctx.params.id}` };
         }
       } else {
-        response.error = { status: 404, name: "Not Found", message: `Invalid id ${ctx.params.id}` }
+        response.error = { status: 404, name: "Not Found", message: `Invalid id ${ctx.params.id}` };
       }
     }
 
