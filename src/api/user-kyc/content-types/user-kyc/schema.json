@@ -45,12 +45,6 @@
       "default": false,
       "required": true
     },
-    "user_profile": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::user-profile.user-profile",
-      "mappedBy": "user_kyc"
-    },
     "is_rejected": {
       "type": "boolean",
       "default": false

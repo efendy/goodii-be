@@ -29,22 +29,11 @@
       "type": "date",
       "required": true
     },
-    "user": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
-    },
     "shops": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::shop.shop",
       "mappedBy": "user_profile"
-    },
-    "user_kyc": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::user-kyc.user-kyc",
-      "inversedBy": "user_profile"
     },
     "email": {
       "type": "email"

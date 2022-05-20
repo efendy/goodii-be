@@ -28,7 +28,6 @@ module.exports = createCoreController('api::user-kyc.user-kyc', ({ strapi }) => 
       }
     };
     if (ctx.state?.user) {
-      ctx.request.body.data.user_profile = ctx.state.user.id;
       ctx.request.body.data.id = ctx.state.user.id;
       response = await super.create(ctx);
     }
