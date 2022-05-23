@@ -40,13 +40,13 @@ module.exports = createCoreController('api::listing.listing', ({ strapi }) => ({
       const userId = ctx.state.user.id;
       const shopId = ctx.request.body.data['shop'];
       if (shopId) {
-        const userProfile = await strapi.db.query("api::shop.shop").findOne({
+        const shopData = await strapi.db.query("api::shop.shop").findOne({
           select: [ 'owner_id' ],
           where: { id: shopId },
         });
-        if (userProfile) {
-          const userProfileId = parseInt(userProfile['owner_id'] ?? 0);
-          if (userProfileId > 0 && userProfileId == userId) {
+        if (shopData) {
+          const ownerId = parseInt(shopData['owner_id'] ?? 0);
+          if (ownerId > 0 && ownerId == userId) {
             response = await super.create(ctx);
           } else {
             response.error = { status: 401, name: "Unauthorized", message: `Not allow to create for shop ${shopId}` };
