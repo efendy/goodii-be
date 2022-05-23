@@ -29,6 +29,11 @@ module.exports = createCoreController('api::user-kyc.user-kyc', ({ strapi }) => 
     };
     if (ctx.state?.user) {
       ctx.request.body.data.id = ctx.state.user.id;
+
+      delete ctx.request.body.data['is_approved'];
+      delete ctx.request.body.data['is_rejected'];
+      delete ctx.request.body.data['rejected_reason'];
+
       response = await super.create(ctx);
     }
     return response;
@@ -57,6 +62,12 @@ module.exports = createCoreController('api::user-kyc.user-kyc', ({ strapi }) => 
     };
     if (ctx.state?.user) {
       ctx.params.id = ctx.state.user.id;
+
+      // @TODO Fields which should not be modified by user
+      ctx.request.body.data['is_approved'] = false;
+      ctx.request.body.data['is_rejected'] = false;
+      delete ctx.request.body.data['rejected_reason'];
+
       response = await super.update(ctx);
     }
     return response;

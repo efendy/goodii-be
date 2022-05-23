@@ -54,7 +54,6 @@ module.exports = createCoreController('api::shop.shop', ({ strapi }) =>  ({
           delete ctx.request.body.data['owner_id'];
           delete ctx.request.body.data['user_profile'];
 
-          console.log(ctx.request.body);
           response = await super.update(ctx);
         } else {
           response.error = { status: 401, name: "Unauthorized", message: `Not allow to update id ${ctx.params.id}` };
