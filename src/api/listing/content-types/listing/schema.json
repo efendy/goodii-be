@@ -150,6 +150,23 @@
       },
       "type": "biginteger",
       "default": "0"
+    },
+    "is_fixed_price": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "addon_menu": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
     }
   }
 }
