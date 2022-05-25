@@ -1,0 +1,82 @@
+{
+  "kind": "collectionType",
+  "collectionName": "listing_add_ons",
+  "info": {
+    "singularName": "listing-add-on",
+    "pluralName": "listing-add-ons",
+    "displayName": "Listing Add-on",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "price": {
+      "required": true,
+      "default": 0,
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "currency": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "listings": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::listing.listing",
+      "inversedBy": "listing_add_ons"
+    },
+    "shop": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::shop.shop",
+      "inversedBy": "listing_add_ons"
+    },
+    "owner_id": {
+      "type": "biginteger",
+      "default": "0",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

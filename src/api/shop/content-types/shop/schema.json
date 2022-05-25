@@ -230,6 +230,12 @@
         }
       },
       "type": "string"
+    },
+    "listing_add_ons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::listing-add-on.listing-add-on",
+      "mappedBy": "shop"
     }
   }
 }

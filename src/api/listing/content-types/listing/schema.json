@@ -118,14 +118,6 @@
       },
       "type": "richtext"
     },
-    "viewed": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "integer"
-    },
     "owner_id": {
       "pluginOptions": {
         "i18n": {
@@ -160,13 +152,42 @@
       "type": "boolean",
       "default": false
     },
-    "addon_menu": {
+    "short_description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "json"
+      "type": "text"
+    },
+    "short_description_en": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "listing_add_ons": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::listing-add-on.listing-add-on",
+      "mappedBy": "listings"
     }
   }
 }
