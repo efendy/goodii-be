@@ -1,7 +1,7 @@
 {
   "name": "be-strapi",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.9",
   "description": "A Strapi application",
   "scripts": {
     "develop": "strapi develop",
@@ -12,11 +12,11 @@
   },
   "dependencies": {
     "@strapi-community/strapi-provider-upload-google-cloud-storage": "^4.1.7",
-    "@strapi/plugin-documentation": "^4.1.11",
-    "@strapi/plugin-i18n": "4.1.11",
-    "@strapi/plugin-users-permissions": "4.1.11",
-    "@strapi/provider-email-nodemailer": "4.1.11",
-    "@strapi/strapi": "4.1.11",
+    "@strapi/plugin-documentation": "^4.1.12",
+    "@strapi/plugin-i18n": "^4.1.12",
+    "@strapi/plugin-users-permissions": "^4.1.12",
+    "@strapi/provider-email-nodemailer": "^4.1.12",
+    "@strapi/strapi": "^4.1.12",
     "dotenv": "^16.0.0",
     "pg": "8.6.0",
     "uuid": "^8.3.2"
