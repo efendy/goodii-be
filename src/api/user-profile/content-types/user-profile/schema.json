@@ -44,6 +44,21 @@
     },
     "uid": {
       "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "town": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "postcode": {
+      "type": "string"
     }
   }
 }
