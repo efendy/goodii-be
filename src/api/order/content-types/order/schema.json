@@ -51,6 +51,7 @@
     "status": {
       "type": "enumeration",
       "enum": [
+        "draft",
         "quote",
         "pending_payment",
         "paid",
@@ -63,7 +64,8 @@
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "default": "draft"
     },
     "paid_datetime": {
       "type": "datetime",
@@ -139,6 +141,54 @@
       },
       "type": "integer",
       "required": true
+    },
+    "is_open": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": true
+    },
+    "status_payment": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "none",
+        "authorized",
+        "paid",
+        "partially_paid",
+        "partially_refunded",
+        "pending",
+        "refunded",
+        "voided"
+      ],
+      "default": "none"
+    },
+    "status_fulfillment": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "open",
+        "fulfilled",
+        "in_progress",
+        "on_hold",
+        "partially_fulfilled",
+        "pending",
+        "restocked",
+        "scheduled",
+        "unfulfilled"
+      ],
+      "default": "open"
     }
   }
 }

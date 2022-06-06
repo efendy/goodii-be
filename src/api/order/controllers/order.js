@@ -21,20 +21,47 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
     if (ctx.state?.user) {
       const userId = ctx.state.user.id;
       const listingId = ctx.request.body.data['listing'];
+
       if (listingId) {
-        const listingData = await strapi.db.query("api::listing.listing").findOne({
-          select: [ 'owner_id' ],
-          where: { id: listingId },
+        const orderDataExist = await strapi.db.query("api::order.order").findOne({
+          where: {
+            $and: [
+              { listing: { id: listingId } },
+              { owner_id: userId },
+              { is_open: true },
+            ]
+          },
         });
-        if (listingData) {
-          const listingOwnerId = parseInt(listingData['owner_id'] ?? 0);
-          if (listingOwnerId > 0 && listingOwnerId == userId) {
-            response.error = { status: 401, name: "Unauthorized", message: `Not allow to create order for self` };
+
+        if (orderDataExist) {
+          response = {
+            data: {
+              id: orderDataExist.id,
+              attributes: orderDataExist,
+            },
+            meta: {},
+          };
+          delete response.data.attributes.id;
+        } else {
+          const listingData = await strapi.db.query("api::listing.listing").findOne({
+            select: [ 'owner_id' ],
+            where: { id: listingId },
+          });
+          if (listingData) {
+            const listingOwnerId = parseInt(listingData['owner_id'] ?? 0);
+            if (listingOwnerId > 0 && listingOwnerId == userId) {
+              response.error = { status: 401, name: "Unauthorized", message: "Not allow to create order for self" };
+            } else {
+              ctx.request.body.data['listing_owner_id'] = listingOwnerId;
+              ctx.request.body.data['user_profile'] = userId;
+              ctx.request.body.data['owner_id'] = userId;
+              ctx.request.body.data['is_open'] = true;
+              ctx.request.body.data['status_payment'] = "none";
+              ctx.request.body.data['status_fulfillment'] = "open";
+              response = await super.create(ctx);
+            }
           } else {
-            ctx.request.body.data['listing_owner_id'] = listingOwnerId;
-            ctx.request.body.data['user_profile'] = userId;
-            ctx.request.body.data['owner_id'] = userId;
-            response = await super.create(ctx);
+            response.error = { status: 404, name: "Not Found", message: "Listing does not exist." };
           }
         }
       } else {
