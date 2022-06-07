@@ -198,6 +198,32 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "is_preorder": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "eta_minutes": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "default": 0
+    },
+    "eta_at": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "date"
     }
   }
 }

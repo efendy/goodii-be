@@ -51,23 +51,21 @@
     "status": {
       "type": "enumeration",
       "enum": [
-        "draft",
-        "quote",
-        "pending_payment",
-        "paid",
-        "in_transit",
-        "delivered",
-        "closed",
-        "cancelled"
+        "open",
+        "reject",
+        "confirm",
+        "processing_payment",
+        "processing_fulfillment",
+        "completed"
       ],
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "default": "draft"
+      "default": "open"
     },
-    "paid_datetime": {
+    "payment_at": {
       "type": "datetime",
       "pluginOptions": {
         "i18n": {
@@ -75,7 +73,7 @@
         }
       }
     },
-    "delivered_datetime": {
+    "ready_at": {
       "type": "datetime",
       "pluginOptions": {
         "i18n": {
@@ -189,6 +187,16 @@
         "unfulfilled"
       ],
       "default": "open"
+    },
+    "selected_service_mode": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "default": 0,
+      "required": true
     }
   }
 }

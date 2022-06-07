@@ -56,6 +56,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
               ctx.request.body.data['user_profile'] = userId;
               ctx.request.body.data['owner_id'] = userId;
               ctx.request.body.data['is_open'] = true;
+              ctx.request.body.data['status'] = "open";
               ctx.request.body.data['status_payment'] = "none";
               ctx.request.body.data['status_fulfillment'] = "open";
               response = await super.create(ctx);

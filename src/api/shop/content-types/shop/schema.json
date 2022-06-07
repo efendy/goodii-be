@@ -300,6 +300,16 @@
         }
       },
       "type": "string"
+    },
+    "service_mode": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "default": 0,
+      "required": false
     }
   }
 }
