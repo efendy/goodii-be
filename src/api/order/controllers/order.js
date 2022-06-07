@@ -8,6 +8,15 @@ const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::order.order', ({ strapi }) => ({
 
+  async findOne(ctx) {
+    const uid = ctx.params.id;
+    ctx.params.id = (await strapi.db.query("api::order.order").findOne({
+      where: { uid },
+    }))?.id || 0;
+    console.log(ctx.params);
+    return await super.findOne(ctx);
+  },
+
   async create(ctx) {
     let response = {
       data: null,
