@@ -34,7 +34,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
       const listingId = ctx.request.body.data['listing'];
 
       if (listingId) {
-        const orderDataExist = await strapi.db.query("api::order.order").findOne({
+        const orderEntity = await strapi.db.query("api::order.order").findOne({
           where: {
             $and: [
               { listing: { id: listingId } },
@@ -44,22 +44,17 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
           },
         });
 
-        if (orderDataExist) {
-          response = {
-            data: {
-              id: orderDataExist.id,
-              attributes: orderDataExist,
-            },
-            meta: {},
-          };
-          delete response.data.attributes.id;
+        if (orderEntity) {
+          const sanitizedOrderEntity = await this.sanitizeOutput(orderEntity);
+          
+          response = this.transformResponse(sanitizedOrderEntity);
         } else {
-          const listingData = await strapi.db.query("api::listing.listing").findOne({
+          const listingEntity = await strapi.db.query("api::listing.listing").findOne({
             select: [ 'owner_id' ],
             where: { id: listingId },
           });
-          if (listingData) {
-            const listingOwnerId = parseInt(listingData['owner_id'] ?? 0);
+          if (listingEntity) {
+            const listingOwnerId = parseInt(listingEntity['owner_id'] ?? 0);
             if (listingOwnerId > 0 && listingOwnerId == userId) {
               response.error = { status: 401, name: "Unauthorized", message: "Not allow to create order for self" };
             } else {
