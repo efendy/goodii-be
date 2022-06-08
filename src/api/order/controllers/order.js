@@ -11,12 +11,11 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
   async findOne(ctx) {
     const { uid } = ctx.params;
 
-    const entity = await strapi.db.query('api::order.order').findOne({
+    ctx.params.id = (await strapi.db.query("api::order.order").findOne({
       where: { uid },
-    });
-
-    const sanitizedEntity = await this.sanitizeOutput(entity);
-    return this.transformResponse(sanitizedEntity);
+    }))?.id || 0;
+    
+    return await super.findOne(ctx);
   },
 
   async create(ctx) {
