@@ -59,6 +59,9 @@
     },
     "postcode": {
       "type": "string"
+    },
+    "pushtoken": {
+      "type": "json"
     }
   }
 }

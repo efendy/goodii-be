@@ -197,6 +197,22 @@
       "type": "integer",
       "default": 0,
       "required": true
+    },
+    "payment_provider": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "payment_provider_callback_data": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
     }
   }
 }
