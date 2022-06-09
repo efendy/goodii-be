@@ -89,7 +89,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
     };
     return response;
   },
-
+  
   async update(ctx) {
     let response = {
       data: null,
@@ -102,11 +102,16 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
 
     if (ctx.state?.user) {
       const userId = ctx.state.user.id;
+      const { uid } = ctx.params;
 
-      // only listing owner and order owner can edit this.
-      const entry = await super.findOne(ctx);
+      const entry = await strapi.db.query("api::order.order").findOne({
+        where: { uid },
+      });
+
+      console.log(entry);
       if (entry) {
-        if (entry.data.attributes['owner_id'] == userId || entry.data.attributes['listing_owner_id'] == userId ) {
+        if (entry['owner_id'] == userId || entry['listing_owner_id'] == userId ) {
+          ctx.params.id = entry['id'];
 
           delete ctx.request.body.data['uid'];
           delete ctx.request.body.data['listing'];
@@ -116,10 +121,10 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
           
           response = await super.update(ctx);
         } else {
-          response.error = { status: 401, name: "Unauthorized", message: `Not allow to update id ${ctx.params.id}` };
+          response.error = { status: 401, name: "Unauthorized", message: `Not allow to update uid ${uid}` };
         }
       } else {
-        response.error = { status: 404, name: "Not Found", message: `Invalid id ${ctx.params.id}` };
+        response.error = { status: 404, name: "Not Found", message: `Invalid uid ${uid}` };
       }
     }
 
