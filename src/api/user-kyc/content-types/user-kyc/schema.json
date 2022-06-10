@@ -51,6 +51,10 @@
     },
     "rejected_reason": {
       "type": "string"
+    },
+    "is_test": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

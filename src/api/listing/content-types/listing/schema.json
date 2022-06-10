@@ -224,6 +224,15 @@
         }
       },
       "type": "date"
+    },
+    "is_test": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
     }
   }
 }

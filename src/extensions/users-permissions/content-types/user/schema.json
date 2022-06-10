@@ -65,6 +65,10 @@
     },
     "provider_data": {
       "type": "json"
+    },
+    "is_test": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
