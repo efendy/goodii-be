@@ -13,6 +13,8 @@ module.exports = createCoreController('api::shop.shop', ({ strapi }) =>  ({
     ctx.request.body.data['is_approved'] = false;
     ctx.request.body.data['is_rejected'] = false;
     ctx.request.body.data['rejected_reason'] = "";
+    
+    delete ctx.request.body.data['owner_id'];
 
     const response = await super.create(ctx);
     return response;

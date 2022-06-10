@@ -10,7 +10,9 @@ module.exports = {
   },
   async beforeUpdate(event) {
     const { data } = event.params;
-    event.params.data.owner_id = parseInt(data.user_profile ?? 0);
+    if (data.user_profile) {
+      event.params.data.owner_id = parseInt(data.user_profile);
+    }
     delete event.params.data.uid;
   }
 };

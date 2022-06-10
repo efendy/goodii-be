@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payment_gateways",
+  "info": {
+    "singularName": "payment-gateway",
+    "pluralName": "payment-gateways",
+    "displayName": "Payment Gateway"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
