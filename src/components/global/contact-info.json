@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_global_contact_infos",
+  "info": {
+    "displayName": "contact_info",
+    "icon": "address-card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "address": {
+      "type": "string"
+    },
+    "town": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "country": {
+      "type": "string"
+    },
+    "postcode": {
+      "type": "string"
+    },
+    "geolocation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.geopoint"
+    }
+  }
+}

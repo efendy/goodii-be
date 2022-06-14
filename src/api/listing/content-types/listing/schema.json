@@ -61,14 +61,6 @@
         }
       }
     },
-    "geo_hash": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "extra_menu": {
       "type": "json",
       "pluginOptions": {
@@ -233,6 +225,16 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "geolocation": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.geopoint"
     }
   }
 }

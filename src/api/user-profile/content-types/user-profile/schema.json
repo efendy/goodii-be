@@ -66,6 +66,16 @@
     "is_test": {
       "type": "boolean",
       "default": false
+    },
+    "geolocation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "global.geopoint"
+    },
+    "contacts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.contact-info"
     }
   }
 }

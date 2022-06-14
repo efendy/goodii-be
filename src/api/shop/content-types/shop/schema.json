@@ -131,14 +131,6 @@
       ],
       "required": true
     },
-    "geo_hash": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
     "name_en": {
       "pluginOptions": {
         "i18n": {
@@ -285,22 +277,6 @@
       },
       "type": "json"
     },
-    "geo_latitude": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "geo_longitude": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
     "service_mode": {
       "pluginOptions": {
         "i18n": {
@@ -319,6 +295,16 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "geolocation": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.geopoint"
     }
   }
 }

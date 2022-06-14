@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_global_geopoints",
+  "info": {
+    "displayName": "geopoint",
+    "icon": "location-arrow",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "latitude": {
+      "type": "float",
+      "default": 0
+    },
+    "longitude": {
+      "type": "float",
+      "default": 0
+    },
+    "geohash": {
+      "type": "string"
+    }
+  }
+}
