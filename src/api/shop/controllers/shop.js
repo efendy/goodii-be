@@ -48,13 +48,13 @@ module.exports = createCoreController('api::shop.shop', ({ strapi }) =>  ({
       if (entry) {
         if (entry.data.attributes['owner_id'] == userId) {
 
-          // Fields which should not be modified by user
-          delete ctx.request.body.data['is_approved'];
-          delete ctx.request.body.data['is_rejected'];
-          delete ctx.request.body.data['rejected_reason'];
-          delete ctx.request.body.data['uid'];
-          delete ctx.request.body.data['owner_id'];
-          delete ctx.request.body.data['user_profile'];
+          ctx.request.body.data.is_approved = false;
+          ctx.request.body.data.is_rejected = false;
+          
+          delete ctx.request.body.data.rejected_reason;
+          delete ctx.request.body.data.uid;
+          delete ctx.request.body.data.owner_id;
+          delete ctx.request.body.data.user_profile;
 
           response = await super.update(ctx);
         } else {

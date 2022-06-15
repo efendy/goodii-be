@@ -5,6 +5,7 @@
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
+const dayjs = require('dayjs');
 
 module.exports = createCoreController('api::user-profile.user-profile', ({ strapi }) =>  ({
 
@@ -28,11 +29,25 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
       }
     };
     if (ctx.state?.user) {
-      ctx.request.body.data.id = ctx.state.user.id;
+      console.log(ctx.request.body);
+
+      if (ctx.request.body.data.birthday) {
+        ctx.request.body.data.birthday = String(ctx.request.body.data.birthday).split("T")[0];
+        
+        const now = dayjs();
+        const birthday = dayjs(ctx.request.body.data.birthday);
+        const age = now.diff(birthday, "year");
+
+        console.log(`User profile age: ${age} | ${now.toString()} | ${birthday.toString()}`);
+      }
       
       // @TODO Check Birthday greater or equal than 18 years
 
-      response = await super.create(ctx);
+      response = await this.update(ctx);
+      if (!response) {
+        ctx.request.body.data.id = ctx.state.user.id;
+        response = await super.create(ctx);
+      }
     }
     return response;
   },
@@ -61,7 +76,8 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
     if (ctx.state?.user) {
       ctx.params.id = ctx.state.user.id;
 
-      // @TODO Fields which should not be modified by user
+      delete ctx.request.body.data.uid;
+      delete ctx.request.body.data.id;
 
       response = await super.update(ctx);
     }

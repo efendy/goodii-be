@@ -17,6 +17,7 @@
     "@strapi/plugin-users-permissions": "^4.1.12",
     "@strapi/provider-email-nodemailer": "^4.1.12",
     "@strapi/strapi": "^4.1.12",
+    "dayjs": "^1.11.3",
     "dotenv": "^16.0.0",
     "pg": "8.6.0",
     "uuid": "^8.3.2"
