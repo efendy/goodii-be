@@ -20,6 +20,8 @@
     "dayjs": "^1.11.3",
     "dotenv": "^16.0.0",
     "pg": "8.6.0",
+    "strapi-plugin-rest-cache": "^4.2.4",
+    "strapi-provider-rest-cache-memory": "^4.2.4",
     "uuid": "^8.3.2"
   },
   "author": {
