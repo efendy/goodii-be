@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {
     "i18n": {
@@ -161,7 +161,8 @@
           "localized": true
         }
       },
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     }
   }
 }
