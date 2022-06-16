@@ -8,6 +8,22 @@ const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::shop.shop', ({ strapi }) =>  ({
 
+  async findOne(ctx) {
+    let response;
+    if (ctx.params.id == "me" && ctx.state?.user?.id) {
+      const userId = ctx.state?.user?.id;
+
+      delete ctx.params.id;
+      
+      ctx.request.url += `&filters[owner_id][$eq]=${userId}`;
+
+      response = await super.find(ctx);
+    } else {
+      response = await super.findOne(ctx);
+    }
+    return response;
+  },
+
   async create(ctx) {
     ctx.request.body.data['user_profile'] = ctx.state.user.id;
     ctx.request.body.data['is_approved'] = false;
