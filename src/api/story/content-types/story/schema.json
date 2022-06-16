@@ -38,9 +38,7 @@
       "required": false,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
+        "videos"
       ],
       "pluginOptions": {
         "i18n": {
@@ -147,6 +145,23 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "is_paid": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "is_approved": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean"
     }
   }
 }
