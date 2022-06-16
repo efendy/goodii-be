@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_global_push_tokens",
+  "info": {
+    "displayName": "Push Token",
+    "icon": "key",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "provider": {
+      "type": "string"
+    },
+    "token": {
+      "type": "string"
+    }
+  }
+}

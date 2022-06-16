@@ -60,9 +60,6 @@
     "postcode": {
       "type": "string"
     },
-    "pushtoken": {
-      "type": "json"
-    },
     "is_test": {
       "type": "boolean",
       "default": false
@@ -76,6 +73,11 @@
       "type": "component",
       "repeatable": true,
       "component": "global.contact-info"
+    },
+    "pushtokens": {
+      "type": "component",
+      "repeatable": true,
+      "component": "global.push-tokens"
     }
   }
 }
