@@ -66,9 +66,9 @@ module.exports = createCoreController('api::user-kyc.user-kyc', ({ strapi }) => 
     if (ctx.state?.user) {
       ctx.params.id = ctx.state.user.id;
 
-      ctx.request.body.data.is_approved = false;
       ctx.request.body.data.is_rejected = false;
 
+      delete ctx.request.body.data.is_approved;
       delete ctx.request.body.data.rejected_reason;
       delete ctx.request.body.data.id;
 

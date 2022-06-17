@@ -25,10 +25,10 @@ module.exports = createCoreController('api::shop.shop', ({ strapi }) =>  ({
   },
 
   async create(ctx) {
-    ctx.request.body.data['user_profile'] = ctx.state.user.id;
-    ctx.request.body.data['is_approved'] = false;
-    ctx.request.body.data['is_rejected'] = false;
-    ctx.request.body.data['rejected_reason'] = "";
+    ctx.request.body.data.user_profile = ctx.state.user.id;
+    ctx.request.body.data.is_approved = false;
+    ctx.request.body.data.is_rejected = false;
+    ctx.request.body.data.rejected_reason = "";
     
     delete ctx.request.body.data['owner_id'];
 
@@ -64,9 +64,9 @@ module.exports = createCoreController('api::shop.shop', ({ strapi }) =>  ({
       if (entry) {
         if (entry.data.attributes['owner_id'] == userId) {
 
-          ctx.request.body.data.is_approved = false;
           ctx.request.body.data.is_rejected = false;
           
+          delete ctx.request.body.data.is_approved;
           delete ctx.request.body.data.rejected_reason;
           delete ctx.request.body.data.uid;
           delete ctx.request.body.data.owner_id;
