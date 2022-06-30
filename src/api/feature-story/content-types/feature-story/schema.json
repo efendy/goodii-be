@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "feature_stories",
+  "info": {
+    "singularName": "feature-story",
+    "pluralName": "feature-stories",
+    "displayName": "Feature Story"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "story": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::story.story",
+      "inversedBy": "feature_story"
+    }
+  }
+}

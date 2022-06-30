@@ -163,6 +163,12 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "feature_story": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::feature-story.feature-story",
+      "inversedBy": "story"
     }
   }
 }
