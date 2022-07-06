@@ -218,7 +218,7 @@
       "type": "boolean",
       "default": false
     },
-    "listing": {
+    "listing_data": {
       "pluginOptions": {
         "i18n": {
           "localized": true
