@@ -218,14 +218,13 @@
       "type": "boolean",
       "default": false
     },
-    "listing_data": {
+    "listing_id": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "json",
-      "required": true
+      "type": "integer"
     }
   }
 }

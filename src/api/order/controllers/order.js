@@ -30,13 +30,13 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
 
     if (ctx.state?.user) {
       const userId = ctx.state.user.id;
-      const listingId = ctx.request.body.data['listing'];
+      const listingId = ctx.request.body.data['listing_id'];
 
       if (listingId) {
         const orderEntity = await strapi.db.query("api::order.order").findOne({
           where: {
             $and: [
-              { listing: { id: listingId } },
+              { listing_id: listingId },
               { owner_id: userId },
               { is_open: true },
             ]
