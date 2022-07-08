@@ -233,6 +233,15 @@
         }
       },
       "type": "json"
+    },
+    "has_reviewed": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
     }
   }
 }
