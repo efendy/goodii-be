@@ -118,6 +118,15 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
           delete ctx.request.body.data['user_profile'];
           delete ctx.request.body.data['listing_owner_id'];
           delete ctx.request.body.data['owner_id'];
+
+          switch (ctx.request.body.data['status']) {
+            case 'rejected':
+            case 'completed':
+              ctx.request.body.data['is_open'] = false;
+              break;
+            default:
+              ctx.request.body.data['is_open'] = true;
+          }
           
           response = await super.update(ctx);
         } else {
