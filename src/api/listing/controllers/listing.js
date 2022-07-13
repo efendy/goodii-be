@@ -116,4 +116,33 @@ module.exports = createCoreController('api::listing.listing', ({ strapi }) => ({
     };
     return response;
   },
+
+  async getByUIDs(ctx) {
+    let response = {
+      data: null,
+      error: {
+        status: 400,
+        name: "Bad Request",
+        message: "Invalid Request"
+      }
+    };
+    const {uids} = ctx.request.body.data;
+    if (uids && Array.isArray(uids)) {
+      if (uids.length > 100) {
+        response.error.message = `Too many uids: ${uids.length}`
+      } else {
+        const listingEntity = await strapi.db.query("api::listing.listing").findMany({
+          where: {
+            $or: uids.map((value) => {
+              return { uid: value};
+            }),
+          },
+          populate: ['images', 'listing_tags', 'shop', 'shop.image_logo'],
+        });
+        const sanitizedListingEntity = await this.sanitizeOutput(listingEntity, ctx);
+        response = this.transformResponse(sanitizedListingEntity);
+      }
+    }
+    return response;
+  }
 }));
