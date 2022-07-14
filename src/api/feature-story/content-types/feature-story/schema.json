@@ -19,7 +19,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::story.story",
-      "inversedBy": "feature_story"
+      "mappedBy": "feature_story"
     }
   }
 }

@@ -169,6 +169,16 @@
       "relation": "oneToOne",
       "target": "api::feature-story.feature-story",
       "inversedBy": "story"
+    },
+    "reading_minutes": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "default": 0,
+      "required": false
     }
   }
 }
