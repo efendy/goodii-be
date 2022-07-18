@@ -38,7 +38,7 @@
       }
     },
     "description": {
-      "type": "richtext",
+      "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -100,7 +100,7 @@
           "localized": false
         }
       },
-      "type": "string"
+      "type": "text"
     },
     "description_en": {
       "pluginOptions": {
@@ -108,7 +108,7 @@
           "localized": false
         }
       },
-      "type": "richtext"
+      "type": "text"
     },
     "owner_id": {
       "pluginOptions": {
@@ -150,7 +150,7 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "string"
     },
     "short_description_en": {
       "pluginOptions": {
@@ -158,7 +158,7 @@
           "localized": true
         }
       },
-      "type": "text"
+      "type": "string"
     },
     "images": {
       "type": "media",

@@ -145,7 +145,7 @@
           "localized": false
         }
       },
-      "type": "string"
+      "type": "text"
     },
     "listings": {
       "type": "relation",
