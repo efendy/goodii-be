@@ -16,19 +16,6 @@
     }
   },
   "attributes": {
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "food",
-        "craft",
-        "service"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "title": {
       "type": "string",
       "pluginOptions": {
