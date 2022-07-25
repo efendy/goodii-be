@@ -55,3 +55,18 @@ Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/
 ---
 
 <sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+
+## Delete AppEngine Versions
+
+Get number of versions:
+
+```
+gcloud app versions list | grep be-strapi | wc -l
+```
+
+Replace {NUMBER} with number of version - 10. i.e.: Number of versions is 50, then the {NUMBER} is 40. This is to maintain last 10 versions of deployment.
+
+```
+gcloud app versions delete `gcloud app versions list | grep be-strapi | sed 's/  */:/g' | cut -f 2 -d : | sort -r | tail -n {NUMBER} | tr "\n" " "`
+```
+
