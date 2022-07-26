@@ -27,3 +27,7 @@ env_variables:
 
 beta_settings:
   cloud_sql_instances: 'growfi-test:asia-southeast1:temp-only-less'
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 1
