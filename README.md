@@ -70,3 +70,42 @@ Replace {NUMBER} with number of version - 10. i.e.: Number of versions is 50, th
 gcloud app versions delete `gcloud app versions list | grep be-strapi | sed 's/  */:/g' | cut -f 2 -d : | sort -r | tail -n {NUMBER} | tr "\n" " "`
 ```
 
+## PostGIS for Postgres Cloud SQL
+
+PostGIS is a spatial database extender for PostgreSQL object-relational database. It adds support for geographic objects allowing location queries to be run in SQL.
+
+https://cloud.google.com/sql/docs/postgres/extensions
+
+Installing PostgreSQL extension
+```
+CREATE EXTENSION [ IF NOT EXISTS ] extension_name
+    [ WITH ] [ SCHEMA schema_name ]
+             [ VERSION version ]
+             [ CASCADE ]
+Description
+```
+
+```
+CREATE EXTENSION postgis;
+CREATE EXTENSION postgis_raster;
+CREATE EXTENSION postgis_topology;
+CREATE EXTENSION postgis_sfcgal;
+CREATE EXTENSION fuzzystrmatch;
+CREATE EXTENSION address_standardizer;
+CREATE EXTENSION postgis_tiger_geocoder;
+```
+
+Upgrading
+```
+-- Upgrade PostGIS (includes raster)
+ALTER EXTENSION postgis
+ UPDATE TO "3.2.1";
+-- Upgrade Topology
+ALTER EXTENSION postgis_topology
+ UPDATE TO "3.2.1";
+
+-- Upgrade US Tiger Geocoder
+ALTER EXTENSION postgis_tiger_geocoder
+ UPDATE TO "3.2.1";
+```
+

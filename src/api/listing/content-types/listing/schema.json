@@ -239,6 +239,28 @@
         }
       },
       "type": "integer"
+    },
+    "eta": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
+    },
+    "eta_type": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "minute",
+        "hour",
+        "day",
+        "week"
+      ]
     }
   }
 }

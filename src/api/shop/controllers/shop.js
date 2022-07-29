@@ -95,4 +95,22 @@ module.exports = createCoreController('api::shop.shop', ({ strapi }) =>  ({
     };
     return response;
   },
+
+  async near(ctx) {
+    let response = {
+      data: null,
+      error: {
+        status: 400,
+        name: "Bad Request",
+        message: "Invalid Request"
+      }
+    };
+    const {lon, lat, distance} = ctx.request.body.data;
+    if (lon && lat) {
+      
+    } else {
+      response.error.message = "Required lon and lat payload"
+    }
+    return response;
+  },
 }));
