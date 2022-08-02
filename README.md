@@ -109,3 +109,97 @@ ALTER EXTENSION postgis_tiger_geocoder
  UPDATE TO "3.2.1";
 ```
 
+## ROLES
+
+### Copying admin permissions from other role_id
+```
+INSERT INTO admin_permissions_role_links (permission_id, role_id)
+	SELECT permission_id, 4 FROM admin_permissions_role_links
+	WHERE role_id = 2
+```
+
+### Find admin permissions
+```
+SELECT * FROM public.admin_permissions
+WHERE action like '%.read'
+ORDER BY id ASC
+```
+
+### Copying admin permission for media library
+
+SHOW
+
+```
+SELECT admin_permissions_role_links.permission_id, 
+  admin_permissions_role_links.role_id, 
+	admin_permissions.action, 
+	admin_permissions_role_links.role_id, 
+	admin_permissions.properties
+FROM admin_permissions_role_links 
+JOIN admin_permissions ON admin_permissions_role_links.permission_id = admin_permissions.id
+WHERE admin_permissions_role_links.role_id = 2
+ORDER BY admin_permissions.action;
+```
+
+COPY admin_permissions
+```
+INSERT INTO admin_permissions (action, subject, properties, conditions)
+  SELECT admin_permissions.action, admin_permissions.subject, admin_permissions.properties, admin_permissions.conditions
+  FROM admin_permissions_role_links JOIN admin_permissions ON admin_permissions_role_links.permission_id = admin_permissions.id
+  WHERE admin_permissions_role_links.role_id = 1 and admin_permissions.action like 'plugin::upload.%'
+  ORDER BY admin_permissions.action
+```
+
+FIND the newly added admin_permissions
+```
+SELECT * FROM admin_permissions
+ORDER BY admin_permissions.id
+```
+
+LINK admin_permissions_role_links 
+```
+INSERT INTO admin_permissions_role_links (permission_id, role_id)
+  SELECT id, 4 FROM admin_permissions
+  WHERE admin_permissions.id >= 2467 and admin_permissions.id <= 2472
+```
+
+
+### Link roles by subject
+
+Delete admin_permissions_role_links based on subject
+```
+DELETE FROM admin_permissions_role_links
+WHERE permission_id IN (
+  SELECT admin_permissions.id
+    FROM admin_permissions_role_links
+	JOIN admin_permissions ON admin_permissions_role_links.permission_id = admin_permissions.id
+	WHERE admin_permissions.subject like 'api::story.story'
+	AND admin_permissions_role_links.role_id = 5
+) 
+```
+
+Add admin_permissions_role_links based on subject
+```
+INSERT INTO admin_permissions_role_links (permission_id, role_id)
+  SELECT id, 5 FROM admin_permissions
+  WHERE admin_permissions.subject like 'api::story.story'
+```
+
+```
+api::coupon.coupon
+api::feature-story.feature-story
+api::flagged-listing.flagged-listing
+api::listing-add-on.listing-add-on
+api::listing.listing
+api::listing-tag.listing-tag
+api::marketing-notification.marketing-notification
+api::order.order
+api::payment-gateway.payment-gateway
+api::shop.shop
+api::story-request.story-request
+api::story.story
+api::story-tag.story-tag
+api::user-kyc.user-kyc
+api::user-profile.user-profile
+plugin::users-permissions.user
+```
