@@ -203,3 +203,10 @@ api::user-kyc.user-kyc
 api::user-profile.user-profile
 plugin::users-permissions.user
 ```
+
+### Reseting admin role conditions
+
+```
+UPDATE admin_permissions
+SET conditions = '[]';
+```
