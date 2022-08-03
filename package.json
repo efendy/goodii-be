@@ -1,8 +1,8 @@
 {
   "name": "be-strapi",
   "private": true,
-  "version": "0.1.10",
-  "description": "A Strapi application",
+  "version": "0.1.15",
+  "description": "GROWFI Admin CMS to manage data",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -11,25 +11,23 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi-community/strapi-provider-upload-google-cloud-storage": "4.1.7",
-    "@strapi/plugin-documentation": "4.2.2",
-    "@strapi/plugin-i18n": "4.2.2",
-    "@strapi/plugin-users-permissions": "4.2.2",
-    "@strapi/provider-email-nodemailer": "4.2.2",
-    "@strapi/strapi": "4.2.2",
+    "@strapi-community/strapi-provider-upload-google-cloud-storage": "4.2.3",
+    "@strapi/plugin-documentation": "4.3.2",
+    "@strapi/plugin-i18n": "4.3.2",
+    "@strapi/plugin-users-permissions": "4.3.2",
+    "@strapi/provider-email-nodemailer": "4.3.2",
+    "@strapi/strapi": "4.3.2",
     "dayjs": "1.11.3",
     "dotenv": "16.0.0",
-    "pg": "8.6.0",
-    "strapi-plugin-postgis": "0.1.5",
-    "strapi-plugin-rest-cache": "4.2.4",
-    "strapi-provider-rest-cache-memory": "4.2.4",
+    "mysql": "2.18.1",
+    "strapi-plugin-import-export-entries": "^1.7.1",
     "uuid": "8.3.2"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "GROWFI developers"
   },
   "strapi": {
-    "uuid": "045d1487-ea88-4b70-a1c4-bcfdf76dce45"
+    "uuid": "c5c99e0c-7326-4e2f-bac8-6dd86a7d734a"
   },
   "engines": {
     "node": "16.15.0",
