@@ -16,7 +16,7 @@ module.exports = {
       userProfileId = parseInt(userProfile['owner_id'] ?? 0);
     }
     event.params.data.owner_id = userProfileId;
-    event.params.data.uid = `st-${uuid.v4()}`;
+    event.params.data.uid = `st${uuid.v4().replace('-','')}`;
   },
   async beforeUpdate(event) {
     const { data } = event.params;
