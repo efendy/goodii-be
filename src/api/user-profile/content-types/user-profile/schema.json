@@ -68,6 +68,21 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "app_country": {
+      "type": "enumeration",
+      "enum": [
+        "MYANMAR",
+        "VIETNAM"
+      ],
+      "required": false
+    },
+    "prefer_language": {
+      "type": "enumeration",
+      "enum": [
+        "DEFAULT",
+        "ENGLISH"
+      ]
     }
   }
 }
