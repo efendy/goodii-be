@@ -178,6 +178,12 @@
       },
       "type": "boolean",
       "default": false
+    },
+    "payment_transaction": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment-transaction.payment-transaction",
+      "inversedBy": "order"
     }
   }
 }
