@@ -12,7 +12,8 @@ env_variables:
   DATABASE_NAME: 'goodii-strapi-uat'
   DATABASE_USERNAME: 'goodii'
   DATABASE_PASSWORD: 'tC3fZ90XvbA0zL3'
-  DATABASE_HOST: '/cloudsql/growfi-test:asia-southeast1:db-growfi-test'
+  DATABASE_SOCKET_PATH: '/cloudsql/growfi-test:asia-southeast1:db-growfi-test'
+  DATABASE_SSL_SELF: false
   GCS_PROJECT_ID: 'growfi-test'
   GCS_BUCKET_NAME: 'growfi-test.appspot.com'
   GCS_BASE_PATH: 'goodii'
@@ -28,6 +29,14 @@ env_variables:
 beta_settings:
   cloud_sql_instances: 'growfi-test:asia-southeast1:db-growfi-test'
 
+manual_scaling:
+  instances: 1
+
 # automatic_scaling:
 #   min_num_instances: 1
 #   max_num_instances: 1
+
+# resources:
+#   cpu: 1
+#   memory_gb: 2
+#   disk_size_gb: 10
