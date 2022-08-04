@@ -25,11 +25,12 @@
       }
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -52,7 +53,7 @@
       },
       "type": "date"
     },
-    "placing": {
+    "placement": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -62,6 +63,22 @@
       "enum": [
         "home"
       ]
+    },
+    "content_url": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "uid": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

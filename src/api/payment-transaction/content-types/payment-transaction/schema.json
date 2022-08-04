@@ -4,7 +4,8 @@
   "info": {
     "singularName": "payment-transaction",
     "pluralName": "payment-transactions",
-    "displayName": "Payment Transaction"
+    "displayName": "Payment Transaction",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -50,6 +51,14 @@
         "complete"
       ],
       "default": "new"
+    },
+    "uid": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

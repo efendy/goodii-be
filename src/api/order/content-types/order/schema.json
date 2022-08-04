@@ -183,7 +183,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::payment-transaction.payment-transaction",
-      "inversedBy": "order"
+      "mappedBy": "order"
     }
   }
 }

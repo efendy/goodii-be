@@ -72,16 +72,16 @@
     "app_country": {
       "type": "enumeration",
       "enum": [
-        "MYANMAR",
-        "VIETNAM"
+        "my-MM",
+        "vi-VN"
       ],
       "required": false
     },
-    "prefer_language": {
+    "content_language": {
       "type": "enumeration",
       "enum": [
-        "DEFAULT",
-        "ENGLISH"
+        "default",
+        "english"
       ]
     }
   }
