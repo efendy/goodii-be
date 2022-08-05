@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 module.exports = ({ env }) => ({
   upload: {
     config: {
@@ -14,20 +16,18 @@ module.exports = ({ env }) => ({
   },
   email: {
     config: {
-      provider: 'nodemailer',
+      provider: 'sendmail',
       providerOptions: {
-        host: env('SMTP_HOST'),
-        port: env.int('SMTP_PORT'),
-        auth: {
-          user: env('SMTP_USERNAME'),
-          pass: env('SMTP_PASSWORD'),
+        dkim: {
+          privateKey: fs.existsSync('./dkim-private-goodii.pem') ? fs.readFileSync('./dkim-private-goodii.pem', 'utf8') : null,
+          keySelector: 'growfi._domainKey',
         },
       },
       settings: {
         defaultFrom: env('SMTP_DEFAULT_FROM'),
-        defaultReplyTo: env('SMTP_USERNAME'),
+        defaultReplyTo: env('SMTP_DEFAULT_REPLYTO'),
       },
-    },
+    }
   },
   'import-export-entries': {
     enabled: false,
