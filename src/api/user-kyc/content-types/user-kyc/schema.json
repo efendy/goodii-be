@@ -99,6 +99,11 @@
           "localized": true
         }
       }
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-profile.user-profile"
     }
   }
 }
