@@ -4,7 +4,8 @@
   "info": {
     "singularName": "shop-claim-request",
     "pluralName": "shop-claim-requests",
-    "displayName": "Shop Claim Request"
+    "displayName": "Shop Claim Request",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -94,6 +95,11 @@
         }
       },
       "type": "string"
+    },
+    "user_kyc": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-kyc.user-kyc"
     }
   }
 }
