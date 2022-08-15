@@ -28,6 +28,8 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
         message: "Required valid authentication"
       }
     };
+    
+    let isContinue = true;
     if (ctx.state?.user) {
       console.log(ctx.request.body);
 
@@ -39,14 +41,32 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
         const age = now.diff(birthday, "year");
 
         console.log(`User profile age: ${age} | ${now.toString()} | ${birthday.toString()}`);
+
+        const entity = await strapi.service('api::configuration.configuration').find(ctx.query.locale ? {
+          locale: ctx.query.locale
+        } : {});
+        if (entity) {
+          const {min_age} = entity;
+
+          if (parseInt(min_age) > 0 && parseInt(age) < parseInt(min_age)) {
+            isContinue = false;
+            response.error = {
+              status: 400,
+              name: "Minimum Age",
+              message: `Sorry! User's minimum age is ${min_age}`
+            }
+          }
+        }
       }
       
       // @TODO Check Birthday greater or equal than 18 years
 
-      response = await this.update(ctx);
-      if (!response) {
-        ctx.request.body.data.id = ctx.state.user.id;
-        response = await super.create(ctx);
+      if (isContinue) {
+        response = await this.update(ctx);
+        if (!response) {
+          ctx.request.body.data.id = ctx.state.user.id;
+          response = await super.create(ctx);
+        }
       }
     }
     return response;
