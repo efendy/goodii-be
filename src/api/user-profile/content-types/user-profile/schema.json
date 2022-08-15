@@ -83,6 +83,14 @@
         "default",
         "english"
       ]
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "other"
+      ]
     }
   }
 }
