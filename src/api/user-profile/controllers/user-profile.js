@@ -99,6 +99,32 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
       delete ctx.request.body.data.uid;
       delete ctx.request.body.data.id;
 
+      if (ctx.request.body.data.birthday) {
+        ctx.request.body.data.birthday = String(ctx.request.body.data.birthday).split("T")[0];
+        
+        const now = dayjs();
+        const birthday = dayjs(ctx.request.body.data.birthday);
+        const age = now.diff(birthday, "year");
+
+        console.log(`User profile age: ${age} | ${now.toString()} | ${birthday.toString()}`);
+
+        const entity = await strapi.service('api::configuration.configuration').find(ctx.query.locale ? {
+          locale: ctx.query.locale
+        } : {});
+        if (entity) {
+          const {min_age} = entity;
+
+          if (parseInt(min_age) > 0 && parseInt(age) < parseInt(min_age)) {
+            isContinue = false;
+            response.error = {
+              status: 400,
+              name: "Minimum Age",
+              message: `Sorry! User's minimum age is ${min_age}`
+            }
+          }
+        }
+      }
+      
       response = await super.update(ctx);
     }
     return response;
