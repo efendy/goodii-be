@@ -50,6 +50,26 @@
         }
       },
       "type": "string"
+    },
+    "status": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "inprogress",
+        "done"
+      ],
+      "default": "new"
+    },
+    "story_price_plan": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::story-price-plan.story-price-plan",
+      "inversedBy": "story_request"
     }
   }
 }
