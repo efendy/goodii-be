@@ -9,9 +9,9 @@ module.exports = {
     event.params.data.uid = `sh${uuid.v4().replace('-','')}`;
   },
   async beforeUpdate(event) {
-    const { data } = event.params;
-    if (data.user_profile) {
-      event.params.data.owner_id = parseInt(data.user_profile);
+    const { data, populate } = event.params;
+    if (populate?.user_profile) {
+      event.params.data.owner_id = parseInt(data.user_profile ?? 0);
     }
     delete event.params.data.uid;
   }
