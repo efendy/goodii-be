@@ -46,19 +46,6 @@
         }
       }
     },
-    "category": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "Food",
-        "Craft",
-        "Service"
-      ]
-    },
     "shop": {
       "type": "relation",
       "relation": "manyToOne",

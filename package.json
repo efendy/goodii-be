@@ -23,6 +23,7 @@
     "strapi-plugin-import-export-entries": "^1.7.1",
     "strapi-plugin-menus": "^1.0.0",
     "strapi-plugin-publisher": "^1.1.3",
+    "strapi-provider-upload-do": "^3.6.6",
     "uuid": "8.3.2"
   },
   "author": {

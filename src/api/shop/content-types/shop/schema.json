@@ -305,6 +305,11 @@
         }
       },
       "component": "global.geopoint"
+    },
+    "shop_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::shop-type.shop-type"
     }
   }
 }
