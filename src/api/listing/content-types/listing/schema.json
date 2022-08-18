@@ -187,15 +187,6 @@
       "type": "boolean",
       "default": false
     },
-    "eta_minutes": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "integer",
-      "default": 0
-    },
     "eta_at": {
       "pluginOptions": {
         "i18n": {
@@ -222,15 +213,6 @@
         }
       },
       "component": "global.geopoint"
-    },
-    "eta_days": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "integer",
-      "default": 0
     },
     "discounted_price": {
       "pluginOptions": {
