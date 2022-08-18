@@ -23,6 +23,29 @@
         }
       },
       "type": "integer"
+    },
+    "currency": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "payment_provider": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "notavailable",
+        "dinger",
+        "stripe",
+        "alepay"
+      ],
+      "default": "notavailable"
     }
   }
 }
