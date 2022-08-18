@@ -26,6 +26,10 @@
       "type": "component",
       "repeatable": false,
       "component": "global.geopoint"
+    },
+    "default": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

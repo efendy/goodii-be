@@ -310,6 +310,32 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::shop-type.shop-type"
+    },
+    "phone_numbers": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
+    },
+    "email_addresses": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
+    },
+    "social_urls": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.social-url"
     }
   }
 }

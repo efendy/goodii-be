@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_global_social_urls",
+  "info": {
+    "displayName": "Social URL",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "facebook": {
+      "type": "string"
+    },
+    "twitter": {
+      "type": "string"
+    },
+    "instagram": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    }
+  }
+}
