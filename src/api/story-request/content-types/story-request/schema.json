@@ -69,7 +69,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::story-price-plan.story-price-plan",
-      "inversedBy": "story_request"
+      "mappedBy": "story_request"
     }
   }
 }
