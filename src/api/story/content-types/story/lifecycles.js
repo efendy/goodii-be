@@ -1,6 +1,6 @@
 'use strict';
 
-const uuid = require('uuid');
+const uniqid = require('uniqid');
 
 module.exports = {
   async beforeCreate(event) {
@@ -16,7 +16,7 @@ module.exports = {
       userProfileId = parseInt(userProfile['owner_id'] ?? 0);
     }
     event.params.data.owner_id = userProfileId;
-    event.params.data.uid = `st${uuid.v4().replace('-','')}`;
+    event.params.data.uid = uniqid('st');
   },
   async beforeUpdate(event) {
     const { data } = event.params;
