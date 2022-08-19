@@ -91,6 +91,15 @@
         "female",
         "other"
       ]
+    },
+    "geo_lat": {
+      "type": "float"
+    },
+    "geo_lng": {
+      "type": "float"
+    },
+    "geo_hash": {
+      "type": "string"
     }
   }
 }

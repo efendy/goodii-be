@@ -336,6 +336,30 @@
         }
       },
       "component": "global.social-url"
+    },
+    "geo_lat": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "float"
+    },
+    "geo_lng": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "float"
+    },
+    "geo_hash": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

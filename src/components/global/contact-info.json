@@ -22,14 +22,18 @@
     "postcode": {
       "type": "string"
     },
-    "geolocation": {
-      "type": "component",
-      "repeatable": false,
-      "component": "global.geopoint"
-    },
     "default": {
       "type": "boolean",
       "default": false
+    },
+    "geo_lat": {
+      "type": "float"
+    },
+    "geo_lng": {
+      "type": "float"
+    },
+    "geo_hash": {
+      "type": "string"
     }
   }
 }

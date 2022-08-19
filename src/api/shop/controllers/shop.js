@@ -36,17 +36,17 @@ module.exports = createCoreController('api::shop.shop', ({ strapi }) =>  ({
     return response;
   },
 
-  async createMany(ctx) {
-    let response = {
-      data: null,
-      error: {
-        status: 400,
-        name: "Bad Request",
-        message: "Invalid Request"
-      }
-    };
-    return response;
-  },
+  // async createMany(ctx) {
+  //   let response = {
+  //     data: null,
+  //     error: {
+  //       status: 400,
+  //       name: "Bad Request",
+  //       message: "Invalid Request"
+  //     }
+  //   };
+  //   return response;
+  // },
 
   async update(ctx) {
     let response = {
