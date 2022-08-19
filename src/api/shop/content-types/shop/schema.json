@@ -360,6 +360,37 @@
         }
       },
       "type": "string"
+    },
+    "reference_id": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "migration_data": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "json"
+    },
+    "stage": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "level 1",
+        "level 2",
+        "level 3"
+      ],
+      "default": "level 1",
+      "required": false
     }
   }
 }
