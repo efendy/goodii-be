@@ -129,7 +129,7 @@
         "craft",
         "service"
       ],
-      "required": true
+      "required": false
     },
     "name_en": {
       "pluginOptions": {

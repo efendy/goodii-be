@@ -25,6 +25,8 @@ module.exports = createCoreController('api::shop.shop', ({ strapi }) =>  ({
   },
 
   async create(ctx) {
+    // console.log(ctx.request);
+    // console.log(ctx.request.body);
     ctx.request.body.data.user_profile = ctx.state.user.id;
     ctx.request.body.data.is_approved = false;
     ctx.request.body.data.is_rejected = false;
@@ -36,17 +38,17 @@ module.exports = createCoreController('api::shop.shop', ({ strapi }) =>  ({
     return response;
   },
 
-  // async createMany(ctx) {
-  //   let response = {
-  //     data: null,
-  //     error: {
-  //       status: 400,
-  //       name: "Bad Request",
-  //       message: "Invalid Request"
-  //     }
-  //   };
-  //   return response;
-  // },
+  async createMany(ctx) {
+    let response = {
+      data: null,
+      error: {
+        status: 400,
+        name: "Bad Request",
+        message: "Invalid Request"
+      }
+    };
+    return response;
+  },
 
   async update(ctx) {
     let response = {
