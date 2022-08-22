@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_global_operation_days",
+  "info": {
+    "displayName": "Operation Day",
+    "icon": "calendar-day"
+  },
+  "options": {},
+  "attributes": {
+    "selection": {
+      "type": "enumeration",
+      "enum": [
+        "close",
+        "allday",
+        "selective"
+      ],
+      "default": "close"
+    },
+    "time": {
+      "type": "json"
+    }
+  }
+}
