@@ -117,20 +117,6 @@
         }
       }
     },
-    "category": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "enumeration",
-      "enum": [
-        "food",
-        "craft",
-        "service"
-      ],
-      "required": false
-    },
     "name_en": {
       "pluginOptions": {
         "i18n": {
