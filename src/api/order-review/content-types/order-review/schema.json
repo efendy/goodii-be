@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_reviews",
+  "info": {
+    "singularName": "order-review",
+    "pluralName": "order-reviews",
+    "displayName": "Order Review"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "message": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "is_approved": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": true
+    },
+    "rate": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "order": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order"
+    }
+  }
+}
