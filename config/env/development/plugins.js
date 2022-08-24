@@ -36,6 +36,6 @@ module.exports = ({ env }) => ({
     }
   },
   'import-export-entries': {
-    enabled: false,
+    enabled: true,
   },
 });
