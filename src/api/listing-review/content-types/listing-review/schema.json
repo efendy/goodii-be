@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "listing_reviews",
+  "info": {
+    "singularName": "listing-review",
+    "pluralName": "listing-reviews",
+    "displayName": "Listing Review"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "message": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text",
+      "required": true
+    },
+    "is_approved": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "rate": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "default": 0,
+      "required": true
+    },
+    "listing": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::listing.listing"
+    }
+  }
+}
