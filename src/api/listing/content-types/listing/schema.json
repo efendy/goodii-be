@@ -75,12 +75,6 @@
       "target": "api::shop.shop",
       "inversedBy": "listings"
     },
-    "listing_tags": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::listing-tag.listing-tag",
-      "inversedBy": "listings"
-    },
     "title_en": {
       "pluginOptions": {
         "i18n": {
@@ -241,6 +235,11 @@
         }
       },
       "type": "json"
+    },
+    "listing_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::listing-tag.listing-tag"
     }
   }
 }
