@@ -30,14 +30,6 @@
       },
       "type": "json"
     },
-    "is_verified": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "boolean"
-    },
     "status": {
       "pluginOptions": {
         "i18n": {
@@ -59,6 +51,38 @@
         }
       },
       "type": "string"
+    },
+    "cashout_status": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "notyet",
+        "inprogress",
+        "done"
+      ],
+      "default": "notyet"
+    },
+    "amount": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "decimal",
+      "default": 0
+    },
+    "cashout_amount": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "decimal",
+      "default": 0
     }
   }
 }
