@@ -54,6 +54,7 @@
         "open",
         "rejected",
         "confirmed",
+        "paid",
         "ready",
         "completed"
       ],
@@ -184,6 +185,20 @@
       "relation": "oneToOne",
       "target": "api::payment-transaction.payment-transaction",
       "mappedBy": "order"
+    },
+    "paid_by": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "none",
+        "cash",
+        "online"
+      ],
+      "default": "none"
     }
   }
 }
