@@ -382,6 +382,21 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::shop-tag.shop-tag"
+    },
+    "payment_method": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "both",
+        "cash",
+        "online"
+      ],
+      "default": "both",
+      "required": false
     }
   }
 }
