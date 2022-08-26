@@ -53,6 +53,7 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
             response.error = {
               status: 400,
               name: "Minimum Age",
+              code: "user_profile_min_age",
               message: `Sorry! User's minimum age is ${min_age}`
             }
           }
