@@ -52,12 +52,6 @@
       "target": "api::shop.shop",
       "inversedBy": "stories"
     },
-    "story_tags": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::story-tag.story-tag",
-      "inversedBy": "stories"
-    },
     "title_en": {
       "pluginOptions": {
         "i18n": {
@@ -166,6 +160,11 @@
       "type": "integer",
       "default": 0,
       "required": false
+    },
+    "story_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::story-tag.story-tag"
     }
   }
 }
