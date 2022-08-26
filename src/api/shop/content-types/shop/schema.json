@@ -377,6 +377,11 @@
       ],
       "default": "level 1",
       "required": false
+    },
+    "shop_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shop-tag.shop-tag"
     }
   }
 }

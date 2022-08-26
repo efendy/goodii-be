@@ -1,0 +1,578 @@
+{
+  "/shop-tags": {
+    "get": {
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShopTagListResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Unauthorized",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not Found",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal Server Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        }
+      },
+      "tags": [
+        "Shop-tag"
+      ],
+      "parameters": [
+        {
+          "name": "sort",
+          "in": "query",
+          "description": "Sort by attributes ascending (asc) or descending (desc)",
+          "deprecated": false,
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "pagination[withCount]",
+          "in": "query",
+          "description": "Retun page/pageSize (default: true)",
+          "deprecated": false,
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "pagination[page]",
+          "in": "query",
+          "description": "Page number (default: 0)",
+          "deprecated": false,
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "pagination[pageSize]",
+          "in": "query",
+          "description": "Page size (default: 25)",
+          "deprecated": false,
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "pagination[start]",
+          "in": "query",
+          "description": "Offset value (default: 0)",
+          "deprecated": false,
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "pagination[limit]",
+          "in": "query",
+          "description": "Number of entities to return (default: 25)",
+          "deprecated": false,
+          "required": false,
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "fields",
+          "in": "query",
+          "description": "Fields to return (ex: title,author)",
+          "deprecated": false,
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "populate",
+          "in": "query",
+          "description": "Relations to return",
+          "deprecated": false,
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "operationId": "get/shop-tags"
+    },
+    "post": {
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShopTagResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Unauthorized",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not Found",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal Server Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        }
+      },
+      "tags": [
+        "Shop-tag"
+      ],
+      "parameters": [],
+      "operationId": "post/shop-tags",
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ShopTagRequest"
+            }
+          }
+        }
+      }
+    }
+  },
+  "/shop-tags/{id}": {
+    "get": {
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShopTagResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Unauthorized",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not Found",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal Server Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        }
+      },
+      "tags": [
+        "Shop-tag"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "",
+          "deprecated": false,
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "operationId": "get/shop-tags/{id}"
+    },
+    "put": {
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShopTagResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Unauthorized",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not Found",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal Server Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        }
+      },
+      "tags": [
+        "Shop-tag"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "",
+          "deprecated": false,
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "operationId": "put/shop-tags/{id}",
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ShopTagRequest"
+            }
+          }
+        }
+      }
+    },
+    "delete": {
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Unauthorized",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not Found",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal Server Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        }
+      },
+      "tags": [
+        "Shop-tag"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "",
+          "deprecated": false,
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "operationId": "delete/shop-tags/{id}"
+    }
+  },
+  "/shop-tags/{id}/localizations": {
+    "post": {
+      "responses": {
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShopTagLocalizationResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Bad Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Unauthorized",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "403": {
+          "description": "Forbidden",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "404": {
+          "description": "Not Found",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        },
+        "500": {
+          "description": "Internal Server Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Error"
+              }
+            }
+          }
+        }
+      },
+      "tags": [
+        "Shop-tag"
+      ],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "",
+          "deprecated": false,
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "operationId": "post/shop-tags/{id}/localizations",
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ShopTagLocalizationRequest"
+            }
+          }
+        }
+      }
+    }
+  }
+}
