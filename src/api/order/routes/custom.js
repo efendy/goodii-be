@@ -9,6 +9,11 @@ module.exports = {
       method: 'PUT',
       path: '/orders/:uid',
       handler: 'order.update',
+    },
+    {
+      method: 'GET',
+      path: '/orders/monthly',
+      handler: 'order.getMonthly',
     }
   ]
 }

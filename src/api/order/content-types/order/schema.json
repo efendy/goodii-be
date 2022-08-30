@@ -199,6 +199,14 @@
         "online"
       ],
       "default": "none"
+    },
+    "paid_at": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "datetime"
     }
   }
 }

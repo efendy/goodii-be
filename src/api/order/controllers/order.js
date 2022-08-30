@@ -5,6 +5,7 @@
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
+const dayjs = require('dayjs');
 
 module.exports = createCoreController('api::order.order', ({ strapi }) => ({
 
@@ -108,8 +109,8 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
         where: { uid },
       });
 
-      console.log(entry);
       if (entry) {
+        // Only allow to update order, who created it or listing owner.
         if (entry['owner_id'] == userId || entry['listing_owner_id'] == userId ) {
           ctx.params.id = entry['id'];
 
@@ -124,6 +125,8 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
             case 'completed':
               ctx.request.body.data['is_open'] = false;
               break;
+            case 'paid':
+              ctx.request.body.data['paid_at'] = dayjs().format('YYYY-MM-DDTHH:mm:ss.SSSZ'); //"2022-08-22T16:03:00.000Z"
             default:
               ctx.request.body.data['is_open'] = true;
           }
@@ -151,4 +154,19 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
     };
     return response;
   },
+
+  async getMonthly(ctx) {
+    let response = {
+      data: null,
+      error: {
+        status: 400,
+        name: "Bad Request",
+        message: "Invalid Request"
+      }
+    };
+
+
+    return response;
+  },
+
 }));
