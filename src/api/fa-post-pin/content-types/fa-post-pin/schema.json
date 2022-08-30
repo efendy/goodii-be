@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fa_post_pins",
+  "info": {
+    "singularName": "fa-post-pin",
+    "pluralName": "fa-post-pins",
+    "displayName": "FA Post Pin"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "fa_post": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::fa-post.fa-post",
+      "mappedBy": "fa_post_pin"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fa_posts",
+  "info": {
+    "singularName": "fa-post",
+    "pluralName": "fa-posts",
+    "displayName": "FA Post",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "message": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext",
+      "required": true
+    },
+    "is_approved": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-profile.user-profile",
+      "inversedBy": "fa_posts"
+    },
+    "fa_post_pin": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::fa-post-pin.fa-post-pin",
+      "inversedBy": "fa_post"
+    },
+    "fa_replies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fa-reply.fa-reply",
+      "mappedBy": "fa_post"
+    },
+    "fa_post_tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fa-post-tag.fa-post-tag"
+    }
+  }
+}

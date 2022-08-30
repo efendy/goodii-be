@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fa_groups",
+  "info": {
+    "singularName": "fa-group",
+    "pluralName": "fa-groups",
+    "displayName": "FA Group"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "label": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "label_en": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    }
+  }
+}
