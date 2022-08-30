@@ -12,8 +12,8 @@ module.exports = {
     },
     {
       method: 'GET',
-      path: '/orders/monthly',
-      handler: 'order.getMonthly',
+      path: '/earnings/:shopId',
+      handler: 'order.getMonthlyEarning',
     }
   ]
 }

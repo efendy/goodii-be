@@ -162,7 +162,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
     return response;
   },
 
-  async getMonthly(ctx) {
+  async getMonthlyEarning(ctx) {
     let response = {
       data: null,
       error: {
@@ -171,12 +171,19 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
         message: "Invalid Request"
       }
     };
-    // select sum(net_amount) as total, year(paid_at) as year, month(paid_at) as month from orders where owner_id = 4 group by year(paid_at), month(paid_at);
-
     if (ctx.state?.user) {
+      // Only listing owner 
       const userId = ctx.state.user.id;
-    }
+      const { shopId } = ctx.params;
+      
+      const knex = strapi.db.connection;
+      const results = await knex('orders')
+        .select(knex.raw('SUM(net_amount) as total, YEAR(paid_at) as year, MONTH(paid_at) as month'))
+        .where(knex.raw(`shop_id = ${shopId} AND listing_owner_id = ${userId} AND status = 'completed' AND is_open = FALSE`))
+        .groupByRaw('YEAR(paid_at), MONTH(paid_at)');
 
+	    return this.transformResponse({results});
+    }
     return response;
   },
 
