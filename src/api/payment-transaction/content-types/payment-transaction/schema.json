@@ -44,14 +44,6 @@
       ],
       "default": "new"
     },
-    "uid": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
     "cashout_status": {
       "pluginOptions": {
         "i18n": {
@@ -91,6 +83,14 @@
         }
       },
       "type": "biginteger"
+    },
+    "order_uid": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

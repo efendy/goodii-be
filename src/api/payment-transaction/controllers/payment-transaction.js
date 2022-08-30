@@ -29,26 +29,30 @@ module.exports = createCoreController('api::payment-transaction.payment-transact
       }
     };
 
-    const orderId = ctx.request.body.data['order'];
-    console.log(orderId);
-    if (orderId) {
+    const orderUid = ctx.request.body.data['order_uid'];
+    console.log(orderUid);
+    if (orderUid) {
       const orderEntity = await strapi.db.query("api::order.order").findOne({
-        where: { id: orderId },
+        where: { uid: orderUid },
       });
       const paymentTransactionEntity = await strapi.db.query("api::payment-transaction.payment-transaction").findOne({
-        where: { id: orderId },
+        where: { order_uid: orderUid },
       });
       if (orderEntity) {
+        const orderId = parseInt(orderEntity['id'] ?? 0);
         const shopId = parseInt(orderEntity['shop_id'] ?? 0);
 
         ctx.params.id = orderId;
         ctx.request.body.data['shop_id'] = shopId;
+        ctx.request.body.data['order_uid'] = orderUid;
         ctx.request.body.data['locale'] = orderEntity['locale'];
         try {
           response = await this.update(ctx);
         } catch (e) {
           console.log(e);
           ctx.request.body.data.id = orderId;
+          ctx.request.body.data['amount'] = orderEntity['net_amount'];
+          ctx.request.body.data['cashout_amount'] = orderEntity['gross_amount'];
           response = await super.create(ctx);
         }
       } else {
@@ -70,6 +74,13 @@ module.exports = createCoreController('api::payment-transaction.payment-transact
     return response;
   },
 
+  async update(ctx) {
+    delete ctx.request.body.data['amount'];
+    delete ctx.request.body.data['cashout_amount'];
+    
+    return await super.update(ctx);
+  },
+
   async updateByUid(ctx) {
     let response = {
       data: null,
@@ -79,6 +90,14 @@ module.exports = createCoreController('api::payment-transaction.payment-transact
         message: "Invalid Request"
       }
     };
+    const entry = await strapi.db.query("api::payment-transaction.payment-transaction").findOne({
+      where: { order_uid: orderUid },
+    });
+    if (entry) {
+      const orderId = parseInt(entry['id'] ?? 0);
+      ctx.params.id = orderId;
+      response = await super.update(ctx);
+    }
     return response;
   },
 
