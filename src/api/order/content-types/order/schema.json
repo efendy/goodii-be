@@ -207,6 +207,20 @@
         }
       },
       "type": "datetime"
+    },
+    "shop": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::shop.shop"
+    },
+    "shop_id": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger",
+      "default": "0"
     }
   }
 }

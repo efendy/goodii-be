@@ -46,18 +46,23 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
 
         if (orderEntity) {
           const sanitizedOrderEntity = await this.sanitizeOutput(orderEntity);
-          
           response = this.transformResponse(sanitizedOrderEntity);
         } else {
           const listingEntity = await strapi.db.query("api::listing.listing").findOne({
             select: [ 'owner_id' ],
             where: { id: listingId },
+            populate: {
+              shop: true,
+            },
           });
           if (listingEntity) {
             const listingOwnerId = parseInt(listingEntity['owner_id'] ?? 0);
+            const shopId = parseInt(listingEntity['shop']['id'] ?? 0);
             if (listingOwnerId > 0 && listingOwnerId == userId) {
               response.error = { status: 401, name: "Unauthorized", message: "Not allow to create order for self" };
             } else {
+              ctx.request.body.data['shop'] = shopId;
+              ctx.request.body.data['shop_id'] = shopId;
               ctx.request.body.data['listing_owner_id'] = listingOwnerId;
               ctx.request.body.data['user_profile'] = userId;
               ctx.request.body.data['owner_id'] = userId;
@@ -119,6 +124,8 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
           delete ctx.request.body.data['user_profile'];
           delete ctx.request.body.data['listing_owner_id'];
           delete ctx.request.body.data['owner_id'];
+          delete ctx.request.body.data['shop'];
+          delete ctx.request.body.data['shop_id'];
 
           switch (ctx.request.body.data['status']) {
             case 'rejected':
@@ -164,7 +171,11 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
         message: "Invalid Request"
       }
     };
+    // select sum(net_amount) as total, year(paid_at) as year, month(paid_at) as month from orders where owner_id = 4 group by year(paid_at), month(paid_at);
 
+    if (ctx.state?.user) {
+      const userId = ctx.state.user.id;
+    }
 
     return response;
   },
