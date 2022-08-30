@@ -83,6 +83,14 @@
       },
       "type": "decimal",
       "default": 0
+    },
+    "shop_id": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger"
     }
   }
 }
