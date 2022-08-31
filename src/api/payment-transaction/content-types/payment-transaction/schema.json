@@ -91,6 +91,11 @@
         }
       },
       "type": "string"
+    },
+    "shop": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::shop.shop"
     }
   }
 }

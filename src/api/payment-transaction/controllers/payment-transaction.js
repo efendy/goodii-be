@@ -34,25 +34,34 @@ module.exports = createCoreController('api::payment-transaction.payment-transact
     if (orderUid) {
       const orderEntity = await strapi.db.query("api::order.order").findOne({
         where: { uid: orderUid },
+        populate: {
+          shop: true,
+        }
       });
       const paymentTransactionEntity = await strapi.db.query("api::payment-transaction.payment-transaction").findOne({
         where: { order_uid: orderUid },
       });
       if (orderEntity) {
         const orderId = parseInt(orderEntity['id'] ?? 0);
-        const shopId = parseInt(orderEntity['shop_id'] ?? 0);
+        const shopId = parseInt(orderEntity['shop']['id'] ?? 0);
 
         ctx.params.id = orderId;
-        ctx.request.body.data['shop_id'] = shopId;
-        ctx.request.body.data['order_uid'] = orderUid;
-        ctx.request.body.data['locale'] = orderEntity['locale'];
+
+        const payloadData = {
+          id: orderId,
+          shop_id: shopId,
+          order_uid: orderUid,
+          shop: shopId,
+          order: orderId,
+          amount: orderEntity['net_amount'],
+          cashout_amount: orderEntity['gross_amount'],
+          locale: orderEntity['locale'],
+        }
         try {
+          ctx.request.body.data = {...payloadData};
           response = await this.update(ctx);
         } catch (e) {
-          console.log(e);
-          ctx.request.body.data.id = orderId;
-          ctx.request.body.data['amount'] = orderEntity['net_amount'];
-          ctx.request.body.data['cashout_amount'] = orderEntity['gross_amount'];
+          ctx.request.body.data = {...payloadData};
           response = await super.create(ctx);
         }
       } else {
@@ -77,6 +86,10 @@ module.exports = createCoreController('api::payment-transaction.payment-transact
   async update(ctx) {
     delete ctx.request.body.data['amount'];
     delete ctx.request.body.data['cashout_amount'];
+    delete ctx.request.body.data['shop'];
+    delete ctx.request.body.data['order'];
+    delete ctx.request.body.data['shop_id'];
+    delete ctx.request.body.data['order_uid'];
     
     return await super.update(ctx);
   },
@@ -126,14 +139,35 @@ module.exports = createCoreController('api::payment-transaction.payment-transact
       // Only listing owner 
       const userId = ctx.state.user.id;
       const { shopId } = ctx.params;
-      
-      // const knex = strapi.db.connection;
-      // const results = await knex('orders')
-      //   .select(knex.raw('SUM(net_amount) as total, YEAR(paid_at) as year, MONTH(paid_at) as month'))
-      //   .where(knex.raw(`shop_id = ${shopId} AND listing_owner_id = ${userId} AND status = 'completed' AND is_open = FALSE`))
-      //   .groupByRaw('YEAR(paid_at), MONTH(paid_at)');
+      const { pipeline } = ctx.query;
 
-	    // return this.transformResponse({results});
+      let isAllow = true;
+      if (pipeline !== 'admin') {
+        // Make sure shop belongs to user
+        const entry = await strapi.db.query("api::shop.shop").findOne({
+          select: [ 'owner_id' ],
+          where: { id: shopId },
+          populate: {
+            user_profile: true,
+          }
+        });
+        console.log('userId', userId, 'shopOwnerId', entry.owner_id, entry.user_profile?.id);
+        isAllow = userId === (entry.user_profile?.id || 0);
+      }
+      
+      if (isAllow) {
+        const knex = strapi.db.connection;
+        const results = await knex('payment_transactions')
+          .select(knex.raw('SUM(cashout_amount) as total'))
+          .where(knex.raw(`cashout_status <> 'done' AND status = 'complete' AND shop_id = ${shopId}`));
+        return this.transformResponse(results[0].total ? { total: results[0].total } : null);
+      } else {
+        response.error = {
+          status: 403,
+          name: "Forbidden",
+          message: "Shop not belong to user."
+        }
+      }
     }
     return response;
   },
