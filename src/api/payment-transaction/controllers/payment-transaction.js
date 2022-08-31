@@ -103,8 +103,10 @@ module.exports = createCoreController('api::payment-transaction.payment-transact
         message: "Invalid Request"
       }
     };
+    const { uid } = ctx.params;
+
     const entry = await strapi.db.query("api::payment-transaction.payment-transaction").findOne({
-      where: { order_uid: orderUid },
+      where: { order_uid: uid },
     });
     if (entry) {
       const orderId = parseInt(entry['id'] ?? 0);
