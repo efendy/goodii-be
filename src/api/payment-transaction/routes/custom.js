@@ -12,7 +12,7 @@ module.exports = {
     },
     {
       method: 'GET',
-      path: '/unclaimed/:shopId',
+      path: '/wallet/:shopId',
       handler: 'payment-transaction.getUnclaimedAmount',
     }
   ]

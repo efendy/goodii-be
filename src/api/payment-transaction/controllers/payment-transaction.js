@@ -162,7 +162,7 @@ module.exports = createCoreController('api::payment-transaction.payment-transact
         const results = await knex('payment_transactions')
           .select(knex.raw('SUM(cashout_amount) as total'))
           .where(knex.raw(`cashout_status <> 'done' AND status = 'complete' AND shop_id = ${shopId}`));
-        return this.transformResponse(results[0].total ? { total: results[0].total } : null);
+        return this.transformResponse({ total: results[0]?.total || 0 });
       } else {
         response.error = {
           status: 403,
