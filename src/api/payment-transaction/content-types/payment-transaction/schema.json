@@ -96,6 +96,14 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::shop.shop"
+    },
+    "external_ref_id": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }
