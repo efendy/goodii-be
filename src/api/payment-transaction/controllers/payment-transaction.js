@@ -38,9 +38,9 @@ module.exports = createCoreController('api::payment-transaction.payment-transact
           shop: true,
         }
       });
-      const paymentTransactionEntity = await strapi.db.query("api::payment-transaction.payment-transaction").findOne({
-        where: { order_uid: orderUid },
-      });
+      // const paymentTransactionEntity = await strapi.db.query("api::payment-transaction.payment-transaction").findOne({
+      //   where: { order_uid: orderUid },
+      // });
       if (orderEntity) {
         const orderId = parseInt(orderEntity['id'] ?? 0);
         const shopId = parseInt(orderEntity['shop']['id'] ?? 0);
@@ -107,6 +107,28 @@ module.exports = createCoreController('api::payment-transaction.payment-transact
 
     const entry = await strapi.db.query("api::payment-transaction.payment-transaction").findOne({
       where: { order_uid: uid },
+    });
+    if (entry) {
+      const orderId = parseInt(entry['id'] ?? 0);
+      ctx.params.id = orderId;
+      response = await super.update(ctx);
+    }
+    return response;
+  },
+
+  async updateByExternalId(ctx) {
+    let response = {
+      data: null,
+      error: {
+        status: 400,
+        name: "Bad Request",
+        message: "Invalid Request"
+      }
+    };
+    const { uid } = ctx.params;
+
+    const entry = await strapi.db.query("api::payment-transaction.payment-transaction").findOne({
+      where: { external_ref_id: uid },
     });
     if (entry) {
       const orderId = parseInt(entry['id'] ?? 0);
