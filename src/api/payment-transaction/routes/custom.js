@@ -11,6 +11,11 @@ module.exports = {
       handler: 'payment-transaction.updateByUid',
     },
     {
+      method: 'PUT',
+      path: '/payment-transactions/external/:uid',
+      handler: 'payment-transaction.updateByExternalId',
+    },
+    {
       method: 'GET',
       path: '/wallet/:shopId',
       handler: 'payment-transaction.getUnclaimedAmount',
