@@ -106,8 +106,10 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
       }
     };
 
-    if (ctx.state?.user) {
-      const userId = ctx.state.user.id;
+    const { pipeline } = ctx.query;
+
+    if (ctx.state?.user || pipeline === 'admin') {
+      const userId = ctx.state.user.id || 0;
       const { uid } = ctx.params;
 
       const entry = await strapi.db.query("api::order.order").findOne({
@@ -116,7 +118,7 @@ module.exports = createCoreController('api::order.order', ({ strapi }) => ({
 
       if (entry) {
         // Only allow to update order, who created it or listing owner.
-        if (entry['owner_id'] == userId || entry['listing_owner_id'] == userId ) {
+        if (entry['owner_id'] == userId || entry['listing_owner_id'] == userId || pipeline == 'admin') {
           ctx.params.id = entry['id'];
 
           delete ctx.request.body.data['uid'];

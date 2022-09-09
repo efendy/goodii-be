@@ -16,14 +16,6 @@
     }
   },
   "attributes": {
-    "order_ref": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "gross_amount": {
       "type": "integer",
       "pluginOptions": {
@@ -33,14 +25,6 @@
       }
     },
     "net_amount": {
-      "type": "integer",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "tax_rate": {
       "type": "integer",
       "pluginOptions": {
         "i18n": {

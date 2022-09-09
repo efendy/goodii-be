@@ -51,6 +51,15 @@
         }
       },
       "type": "integer"
+    },
+    "label_en": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": false
     }
   }
 }
