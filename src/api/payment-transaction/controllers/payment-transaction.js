@@ -56,6 +56,7 @@ module.exports = createCoreController('api::payment-transaction.payment-transact
           amount: orderEntity['net_amount'],
           cashout_amount: orderEntity['gross_amount'],
           locale: orderEntity['locale'],
+          status: "new",
         }
         try {
           ctx.request.body.data = {...payloadData};
