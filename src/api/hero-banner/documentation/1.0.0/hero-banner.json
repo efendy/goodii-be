@@ -1,5 +1,5 @@
 {
-  "/shop-categories": {
+  "/hero-banners": {
     "get": {
       "responses": {
         "200": {
@@ -7,7 +7,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ShopCategoryListResponse"
+                "$ref": "#/components/schemas/HeroBannerListResponse"
               }
             }
           }
@@ -64,7 +64,7 @@
         }
       },
       "tags": [
-        "Shop-category"
+        "Hero-banner"
       ],
       "parameters": [
         {
@@ -148,7 +148,7 @@
           }
         }
       ],
-      "operationId": "get/shop-categories"
+      "operationId": "get/hero-banners"
     },
     "post": {
       "responses": {
@@ -157,7 +157,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ShopCategoryResponse"
+                "$ref": "#/components/schemas/HeroBannerResponse"
               }
             }
           }
@@ -214,23 +214,23 @@
         }
       },
       "tags": [
-        "Shop-category"
+        "Hero-banner"
       ],
       "parameters": [],
-      "operationId": "post/shop-categories",
+      "operationId": "post/hero-banners",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ShopCategoryRequest"
+              "$ref": "#/components/schemas/HeroBannerRequest"
             }
           }
         }
       }
     }
   },
-  "/shop-categories/{id}": {
+  "/hero-banners/{id}": {
     "get": {
       "responses": {
         "200": {
@@ -238,7 +238,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ShopCategoryResponse"
+                "$ref": "#/components/schemas/HeroBannerResponse"
               }
             }
           }
@@ -295,7 +295,7 @@
         }
       },
       "tags": [
-        "Shop-category"
+        "Hero-banner"
       ],
       "parameters": [
         {
@@ -309,7 +309,7 @@
           }
         }
       ],
-      "operationId": "get/shop-categories/{id}"
+      "operationId": "get/hero-banners/{id}"
     },
     "put": {
       "responses": {
@@ -318,7 +318,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ShopCategoryResponse"
+                "$ref": "#/components/schemas/HeroBannerResponse"
               }
             }
           }
@@ -375,7 +375,7 @@
         }
       },
       "tags": [
-        "Shop-category"
+        "Hero-banner"
       ],
       "parameters": [
         {
@@ -389,13 +389,13 @@
           }
         }
       ],
-      "operationId": "put/shop-categories/{id}",
+      "operationId": "put/hero-banners/{id}",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ShopCategoryRequest"
+              "$ref": "#/components/schemas/HeroBannerRequest"
             }
           }
         }
@@ -466,7 +466,7 @@
         }
       },
       "tags": [
-        "Shop-category"
+        "Hero-banner"
       ],
       "parameters": [
         {
@@ -480,10 +480,10 @@
           }
         }
       ],
-      "operationId": "delete/shop-categories/{id}"
+      "operationId": "delete/hero-banners/{id}"
     }
   },
-  "/shop-categories/{id}/localizations": {
+  "/hero-banners/{id}/localizations": {
     "post": {
       "responses": {
         "200": {
@@ -491,7 +491,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ShopCategoryLocalizationResponse"
+                "$ref": "#/components/schemas/HeroBannerLocalizationResponse"
               }
             }
           }
@@ -548,7 +548,7 @@
         }
       },
       "tags": [
-        "Shop-category"
+        "Hero-banner"
       ],
       "parameters": [
         {
@@ -562,13 +562,13 @@
           }
         }
       ],
-      "operationId": "post/shop-categories/{id}/localizations",
+      "operationId": "post/hero-banners/{id}/localizations",
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/ShopCategoryLocalizationRequest"
+              "$ref": "#/components/schemas/HeroBannerLocalizationRequest"
             }
           }
         }

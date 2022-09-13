@@ -397,6 +397,31 @@
       ],
       "default": "both",
       "required": false
+    },
+    "cashout_preference": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "notset",
+        "cash",
+        "bank"
+      ],
+      "default": "notset",
+      "required": false
+    },
+    "cashout_bank_info": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "global.bank-info"
     }
   }
 }

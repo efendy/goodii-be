@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_global_bank_infos",
+  "info": {
+    "displayName": "Bank Info",
+    "icon": "piggy-bank"
+  },
+  "options": {},
+  "attributes": {
+    "bank_name": {
+      "type": "string",
+      "required": true
+    },
+    "account_name": {
+      "type": "string",
+      "required": true
+    },
+    "account_number": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
