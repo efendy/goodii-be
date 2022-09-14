@@ -4,7 +4,8 @@
   "info": {
     "singularName": "hero-banner",
     "pluralName": "hero-banners",
-    "displayName": "Hero Banner"
+    "displayName": "Hero Banner",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,11 +26,12 @@
       "default": 0
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -74,6 +76,21 @@
       ],
       "default": "home",
       "required": true
+    },
+    "shop": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::shop.shop"
+    },
+    "story": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::story.story"
+    },
+    "listing": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::listing.listing"
     }
   }
 }
