@@ -16,15 +16,6 @@
     }
   },
   "attributes": {
-    "real_name": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "image_ic_front": {
       "type": "media",
       "multiple": false,
@@ -104,6 +95,30 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::user-profile.user-profile"
+    },
+    "identity_number": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "image_proof": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
