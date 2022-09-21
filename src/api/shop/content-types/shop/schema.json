@@ -422,6 +422,24 @@
         }
       },
       "component": "global.bank-info"
+    },
+    "service_type": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "in-store",
+        "delivery",
+        "pickup",
+        "in-store,delivery",
+        "in-store,pickup",
+        "delivery,pickup",
+        "in-store,delivery,pickup"
+      ],
+      "default": "in-store"
     }
   }
 }
