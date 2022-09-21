@@ -205,6 +205,20 @@
       },
       "type": "biginteger",
       "default": "0"
+    },
+    "selected_service_type": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "in-store",
+        "delivery",
+        "pickup"
+      ],
+      "default": "in-store"
     }
   }
 }
