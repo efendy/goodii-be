@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "website_communities",
+  "collectionName": "website_abouts",
   "info": {
-    "singularName": "website-community",
-    "pluralName": "website-communities",
-    "displayName": "Website Community"
+    "singularName": "website-about",
+    "pluralName": "website-abouts",
+    "displayName": "Website About"
   },
   "options": {
     "draftAndPublish": false
@@ -39,7 +39,19 @@
         }
       }
     },
-    "image_2": {
+    "image_desktop_2": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "image_mobile_2": {
       "allowedTypes": [
         "images"
       ],
@@ -87,19 +99,7 @@
         }
       }
     },
-    "image_desktop_6": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "image_mobile_6": {
+    "image_6": {
       "allowedTypes": [
         "images"
       ],
@@ -127,31 +127,7 @@
         }
       }
     },
-    "text_3_1": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "text_3_2": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "text_3_3": {
-      "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "text_3_4": {
+    "text_3": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
@@ -168,6 +144,22 @@
       }
     },
     "text_5": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "text_6": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "text_7": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
