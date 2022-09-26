@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "website_coc_sellers",
+  "info": {
+    "singularName": "website-coc-seller",
+    "pluralName": "website-coc-sellers",
+    "displayName": "Website COC Seller"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "Code of Conduct"
+    },
+    "subtitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
+    }
+  }
+}

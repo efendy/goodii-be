@@ -212,22 +212,6 @@
         }
       }
     },
-    "text_1": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "text_2_1": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
     "text_2_2": {
       "pluginOptions": {
         "i18n": {

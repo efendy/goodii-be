@@ -31,6 +31,7 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
     
     let isContinue = true;
     if (ctx.state?.user) {
+      const userId = ctx.state.user.id;
       console.log(ctx.request.body);
 
       if (ctx.request.body.data.birthday) {
@@ -59,13 +60,26 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
           }
         }
       }
-      
-      // @TODO Check Birthday greater or equal than 18 years
 
       if (isContinue) {
         response = await this.update(ctx);
         if (!response) {
-          ctx.request.body.data.id = ctx.state.user.id;
+          ctx.request.body.data.id = userId;
+
+          const userEntry = await strapi.db.query("plugin::users-permissions.user").findOne({
+            where: { id: userId },
+          });
+          const userMobile = userEntry.external_data.data.find(o => o.providerId === 'phone');
+          const userEmail = userEntry.external_data.data.find(o => o.providerId === 'email');
+
+          if (userMobile) {
+            ctx.request.body.data.phone_mobile = userMobile.uid;
+          }
+          if (userEmail) {
+            ctx.request.body.data.email = userEmail.uid;
+          }
+
+          console.log(ctx.request.body.data);
           response = await super.create(ctx);
         }
       }
