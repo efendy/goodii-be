@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "website_privacy_policies",
+  "info": {
+    "singularName": "website-privacy-policy",
+    "pluralName": "website-privacy-policies",
+    "displayName": "Website Privacy Policy",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": false,
+      "default": "Privacy Policy"
+    },
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
+    }
+  }
+}
