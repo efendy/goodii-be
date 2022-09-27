@@ -20,6 +20,7 @@
     "dayjs": "1.11.5",
     "dotenv": "16.0.0",
     "mysql": "2.18.1",
+    "node-fetch": "2",
     "strapi-plugin-import-export-entries": "1.7.1",
     "strapi-plugin-menus": "1.0.0",
     "strapi-plugin-publisher": "1.1.3",
