@@ -79,6 +79,23 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
               ctx.request.body.data["status_payment"] = "none";
               ctx.request.body.data["status_fulfillment"] = "open";
               response = await super.create(ctx);
+
+              const title = "Goodii | Order";
+              await strapi.service("api::order.order").sendNotification({
+                userId: ctx.request.body.data["owner_id"],
+                title,
+                body: ORDER_BUYER_MESSAGE[orderStatus],
+                isCloudMessage: true,
+                storeInNoti: true,
+              });
+
+              await strapi.service("api::order.order").sendNotification({
+                userId: ctx.request.body.data["listing_owner_id"],
+                title,
+                body: ORDER_SELLER_MESSAGE[orderStatus],
+                isCloudMessage: true,
+                storeInNoti: true,
+              });
             }
           } else {
             response.error = {
