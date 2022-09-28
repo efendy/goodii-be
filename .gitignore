@@ -116,3 +116,4 @@ build
 # yarn.lock
 # app.yaml
 .env
+.env*
