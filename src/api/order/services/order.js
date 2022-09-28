@@ -11,10 +11,16 @@ module.exports = createCoreService("api::order.order", ({ strapi }) => ({
   /**
    *
    * userId from `user-profile`
+   * notification must include title and body
    * isCloudMessage as boolean to trigger cloud messaging
    * storeInNoti as boolean to add in `notification` table
    */
-  async sendNotification({ userId, title, body, isCloudMessage, storeInNoti }) {
+  async sendNotification({
+    userId,
+    notification,
+    isCloudMessage,
+    storeInNoti,
+  }) {
     const data = await strapi.entityService.findOne(
       "api::user-profile.user-profile",
       userId,
@@ -28,7 +34,7 @@ module.exports = createCoreService("api::order.order", ({ strapi }) => ({
       const fnNotiUrl = `${process.env?.FN_BASE_URL}/v2-notification-send`;
       const notiData = {
         tokens: tokens,
-        notification: { title, body },
+        notification,
         isPushyMe: !isFCM,
       };
 
@@ -44,11 +50,12 @@ module.exports = createCoreService("api::order.order", ({ strapi }) => ({
     if (storeInNoti) {
       await strapi.entityService.create("api::notification.notification", {
         data: {
-          title,
-          message: body,
+          title: notification?.title,
+          message: notification?.body,
           user_profile: data.id,
           locale: data.app_country,
           type: "order",
+          param: notification?.param,
         },
       });
       console.log("noti added in strapi!");

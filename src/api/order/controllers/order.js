@@ -81,18 +81,23 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
               response = await super.create(ctx);
 
               const title = "Goodii | Order";
+              const param = {
+                id: ctx.request.body.data["uid"],
+              };
               await strapi.service("api::order.order").sendNotification({
                 userId: ctx.request.body.data["owner_id"],
-                title,
-                body: ORDER_BUYER_MESSAGE[orderStatus],
+                notification: { title, body: ORDER_BUYER_MESSAGE.open, param },
                 isCloudMessage: true,
                 storeInNoti: true,
               });
 
               await strapi.service("api::order.order").sendNotification({
                 userId: ctx.request.body.data["listing_owner_id"],
-                title,
-                body: ORDER_SELLER_MESSAGE[orderStatus],
+                notification: {
+                  title,
+                  body: ORDER_SELLER_MESSAGE.open,
+                  param,
+                },
                 isCloudMessage: true,
                 storeInNoti: true,
               });
@@ -181,19 +186,27 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
 
           if (orderStatus !== entry["status"]) {
             const title = "Goodii | Order";
-
+            const param = {
+              id: ctx.request.body.data["uid"],
+            };
             await strapi.service("api::order.order").sendNotification({
               userId: entry["owner_id"],
-              title,
-              body: ORDER_BUYER_MESSAGE[orderStatus],
+              notification: {
+                title,
+                body: ORDER_BUYER_MESSAGE[orderStatus],
+                param,
+              },
               isCloudMessage: true,
               storeInNoti: true,
             });
 
             await strapi.service("api::order.order").sendNotification({
               userId: entry["listing_owner_id"],
-              title,
-              body: ORDER_SELLER_MESSAGE[orderStatus],
+              notification: {
+                title,
+                body: ORDER_SELLER_MESSAGE[orderStatus],
+                param,
+              },
               isCloudMessage: true,
               storeInNoti: true,
             });
