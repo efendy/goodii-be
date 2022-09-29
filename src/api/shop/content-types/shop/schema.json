@@ -263,16 +263,6 @@
       },
       "type": "json"
     },
-    "service_mode": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "integer",
-      "default": 2,
-      "required": false
-    },
     "is_test": {
       "pluginOptions": {
         "i18n": {

@@ -120,16 +120,6 @@
       "type": "boolean",
       "default": true
     },
-    "selected_service_mode": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "integer",
-      "default": 0,
-      "required": true
-    },
     "is_test": {
       "pluginOptions": {
         "i18n": {
