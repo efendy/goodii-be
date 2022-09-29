@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faq_qas",
+  "info": {
+    "singularName": "faq-qa",
+    "pluralName": "faq-qas",
+    "displayName": "FAQ qa",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "question": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "question_en": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "answer": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
+    },
+    "answer_en": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
+    },
+    "order": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "default": 0
+    },
+    "faq_group": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::faq-group.faq-group",
+      "inversedBy": "faq_qas"
+    }
+  }
+}
