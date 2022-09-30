@@ -14,7 +14,8 @@
   "attributes": {
     "pegtoken_address": {
       "type": "string",
-      "required": true
+      "required": false,
+      "private": true
     },
     "currency": {
       "type": "string"
