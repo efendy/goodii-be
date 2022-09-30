@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_gift_cards",
+  "info": {
+    "singularName": "user-gift-card",
+    "pluralName": "user-gift-cards",
+    "displayName": "User Gift Card"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "gc_address": {
+      "type": "string"
+    },
+    "remaining_amount": {
+      "type": "float",
+      "default": 0
+    },
+    "currency": {
+      "type": "string"
+    },
+    "gift_card": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::gift-card.gift-card"
+    },
+    "user_wallet": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-wallet.user-wallet",
+      "inversedBy": "user_gift_cards"
+    }
+  }
+}
