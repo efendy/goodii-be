@@ -4,7 +4,8 @@
   "info": {
     "singularName": "gift-card",
     "pluralName": "gift-cards",
-    "displayName": "Gift Card"
+    "displayName": "Gift Card",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -23,11 +24,18 @@
       "default": 0
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
