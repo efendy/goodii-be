@@ -26,6 +26,13 @@
       "relation": "oneToMany",
       "target": "api::user-gift-card.user-gift-card",
       "mappedBy": "user_wallet"
+    },
+    "public": {
+      "type": "text"
+    },
+    "private": {
+      "type": "text",
+      "private": true
     }
   }
 }
