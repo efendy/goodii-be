@@ -69,8 +69,8 @@ module.exports = createCoreController('api::user-profile.user-profile', ({ strap
           const userEntry = await strapi.db.query("plugin::users-permissions.user").findOne({
             where: { id: userId },
           });
-          const userMobile = userEntry.external_data.data.find(o => o.providerId === 'phone');
-          const userEmail = userEntry.external_data.data.find(o => o.providerId === 'email');
+          const userMobile = userEntry.provider_data?.providerData?.find(o => o.providerId === 'phone');
+          const userEmail = userEntry.provider_data?.providerData?.find(o => o.providerId === 'email');
 
           if (userMobile) {
             ctx.request.body.data.phone_mobile = userMobile.uid;
