@@ -30,7 +30,7 @@
           "localized": true
         }
       },
-      "type": "integer"
+      "type": "decimal"
     },
     "description": {
       "pluginOptions": {
@@ -54,7 +54,7 @@
           "localized": true
         }
       },
-      "type": "integer"
+      "type": "decimal"
     },
     "order": {
       "pluginOptions": {

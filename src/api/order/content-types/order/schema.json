@@ -17,7 +17,7 @@
   },
   "attributes": {
     "gross_amount": {
-      "type": "integer",
+      "type": "decimal",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -25,7 +25,7 @@
       }
     },
     "net_amount": {
-      "type": "integer",
+      "type": "decimal",
       "pluginOptions": {
         "i18n": {
           "localized": true

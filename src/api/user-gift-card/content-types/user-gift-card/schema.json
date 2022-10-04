@@ -4,7 +4,8 @@
   "info": {
     "singularName": "user-gift-card",
     "pluralName": "user-gift-cards",
-    "displayName": "User Gift Card"
+    "displayName": "User Gift Card",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -15,7 +16,7 @@
       "type": "string"
     },
     "remaining_amount": {
-      "type": "float",
+      "type": "decimal",
       "default": 0
     },
     "currency": {

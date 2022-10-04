@@ -21,7 +21,7 @@
       "type": "string"
     },
     "value": {
-      "type": "integer",
+      "type": "decimal",
       "default": 0
     },
     "image": {

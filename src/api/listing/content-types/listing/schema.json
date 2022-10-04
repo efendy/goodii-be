@@ -33,7 +33,7 @@
       }
     },
     "price": {
-      "type": "integer",
+      "type": "decimal",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -204,7 +204,7 @@
           "localized": true
         }
       },
-      "type": "integer"
+      "type": "decimal"
     },
     "eta": {
       "pluginOptions": {
