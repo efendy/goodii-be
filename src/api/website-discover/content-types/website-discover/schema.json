@@ -16,19 +16,6 @@
     }
   },
   "attributes": {
-    "image_1": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "image_2": {
       "type": "media",
       "multiple": false,
@@ -55,46 +42,7 @@
         }
       }
     },
-    "image_4": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "image_5": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "image_6": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "image_7": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -120,33 +68,7 @@
         }
       }
     },
-    "image_9": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "image_10": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "image_11": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -185,7 +107,7 @@
         }
       }
     },
-    "text_1": {
+    "text_subtitle_1": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -193,7 +115,7 @@
       },
       "type": "text"
     },
-    "text_2": {
+    "text_subtitle_2": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -201,7 +123,7 @@
       },
       "type": "text"
     },
-    "text_3": {
+    "text_subtitle_3": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -237,6 +159,62 @@
         }
       },
       "type": "string"
+    },
+    "text_title_1": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "text_title_2": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "text_title_3": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "text_4_1": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "text_4_2": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "text_4_3": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "text_5": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "text"
     }
   }
 }
