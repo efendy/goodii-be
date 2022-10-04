@@ -46,6 +46,22 @@
       },
       "type": "integer",
       "default": 0
+    },
+    "category": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "all",
+        "partner",
+        "customer",
+        "buyer",
+        "seller"
+      ],
+      "default": "all"
     }
   }
 }
