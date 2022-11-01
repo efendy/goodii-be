@@ -24,7 +24,7 @@
     },
     "birthday": {
       "type": "date",
-      "required": true
+      "required": false
     },
     "shops": {
       "type": "relation",

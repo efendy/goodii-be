@@ -13,7 +13,7 @@
   "pluginOptions": {},
   "attributes": {
     "gc_address": {
-      "type": "string"
+      "type": "text"
     },
     "remaining_amount": {
       "type": "decimal",
@@ -32,6 +32,10 @@
       "relation": "manyToOne",
       "target": "api::user-wallet.user-wallet",
       "inversedBy": "user_gift_cards"
+    },
+    "is_paid": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
